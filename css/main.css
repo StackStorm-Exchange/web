@@ -1,0 +1,124 @@
+html {
+  font-family: 'Helvetica Neue', Helvetica, 'Open Sans', Arial, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: #56565a;
+}
+body {
+  width: 960px;
+  margin: 0px auto;
+}
+#packs {
+  margin: 40px 0;
+}
+table {
+  width: 960px;
+  border-collapse: collapse;
+  margin: 10px 0;
+}
+table th {
+  text-align: left;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: normal;
+}
+table td {
+  vertical-align: top;
+  border-top: 1px solid #eee;
+  padding: 15px 10px;
+}
+table td.pack {
+  font-weight: bold;
+  width: 100px;
+}
+table td.author {
+  width: 100px;
+}
+table td.pack .version {
+  display: block;
+  font-size: 14px;
+  margin-top: 3px;
+  font-weight: normal;
+}
+table td .version:before {
+  content: 'v';
+}
+ul.keywords {
+  margin: 10px 0 0 0;
+  padding: 0;
+}
+ul.keywords li {
+  display: inline-block;
+  list-style: none;
+  font-size: 12px;
+  margin: 2px 5px 2px 0;
+  padding: 2px 5px;
+  border: 1px solid #ccc;
+  background: #ddd;
+  border-radius: 3px;
+}
+h1 {
+  font-weight: 300;
+  font-size: 38px;
+}
+h1:after {
+  content: '';
+  display: block;
+  border-bottom: 3px solid #777;
+  width: 80px;
+  margin-top: 28px;
+}
+h1 span {
+  color: #f58221;
+  font-weight: 400;
+}
+p.large {
+  font-size: 24px;
+}
+footer {
+  padding: 20px 0;
+  border-top: 1px solid #aaa;
+  position: relative;
+}
+footer ul {
+  position: absolute;
+  top: 3px;
+  right: 0;
+}
+footer ul li {
+  display: inline-block;
+  list-style: none;
+  margin-left: 7px;
+}
+footer ul li:after {
+  content: '•';
+  font-size: 8px;
+  line-height: 18px;
+  vertical-align: top;
+  margin-left: 10px;
+  color: #aaa;
+}
+footer ul li:last-child:after {
+  display: none;
+}
+footer ul li a {
+  color: #f58221;
+}
+input[type=text] {
+  width: 400px;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  border: 1px solid #bbb;
+}
+p.code {
+  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+  background: #444;
+  color: #ddd;
+  line-height: 140%;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+p.code span {
+  color: #ada;
+}
