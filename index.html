@@ -4,27 +4,15 @@
   <head>
     <meta charset="UTF-8" />
     <title>StackStorm Exchange</title>
-    <script src="https://npmcdn.com/react@15.3.0/dist/react.min.js"></script>
-    <script src="https://npmcdn.com/react-dom@15.3.0/dist/react-dom.min.js"></script>
-    <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-46030182-4', 'auto');
-      ga('send', 'pageview');
-    </script>
-    <script type="text/babel" src="js/pack-list.js"></script>
   </head>
 
   <body>
 
     <h1><span>Stack</span>Storm Pack Exchange</h1>
+    <a id="pack-submit" href="#" data-reamaze-lightbox="contact">Submit a pack</a>
     <p class="large">Dozens of ready-made integration packs that make StackStorm complete.</p>
     <p class="code">st2 pack install <span id="pack-install">mypack</span></p>
 
@@ -39,6 +27,42 @@
       </ul>
     </footer>
 
+    <script src="https://npmcdn.com/react@15.3.0/dist/react.min.js"></script>
+    <script src="https://npmcdn.com/react-dom@15.3.0/dist/react-dom.min.js"></script>
+    <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-46030182-4', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script type="text/babel" src="js/pack-list.js"></script>
+    <script type="text/javascript" src="https://d3itxuyrq7vzpz.cloudfront.net/assets/reamaze.js"></script>
+    <script type="text/javascript">
+      var _support = _support || { 'ui': {}, 'user': {} };
+      _support['account'] = 'stackstorm.reamaze.com';
+      _support['custom_fields'] = {
+        source: {
+          type: "hidden",
+          value: "StackStorm Exchange"
+        }
+        slack_username: {
+          type: "text",
+          value: "",
+          placeholder: "Community Slack username",
+          required: true
+        },
+        pack_url: {
+          type: "text",
+          value: "",
+          placeholder: "Pack URL (GitHub preferred)",
+          required: true
+        },
+      }
+    </script>
   </body>
 
 </html>
