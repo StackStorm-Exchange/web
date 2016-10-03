@@ -1,10 +1,3 @@
-var packs_data = [
-  {"version": "0.6.5", "name": "aws", "author": "st2-dev", "keywords": ["aws", "amazon web services", "amazon", "ec2", "sqs", "sns", "route53", "cloud", "iam", "vpc", "s3", "CloudFormation", "RDS", "SQS"], "email": "info@stackstorm.com", "description": "st2 content pack containing Amazon Web Services integrations."},
-  {"version": 0.4, "name": "github", "author": "st2-dev", "keywords": ["github", "git", "scm"], "email": "info@stackstorm.com", "description": "st2 content pack containing github integrations"},
-  {"version": 0.3, "name": "jira", "author": "st2-dev", "keywords": ["issues", "ticket management", "project management"], "email": "info@stackstorm.com", "description": "st2 content pack containing jira integrations"},
-  {"version": 0.1, "name": "sensu", "author": "st2-dev", "email": "info@stackstorm.com", "description": "st2 content pack containing sensu integrations"}
-];
-
 const PackListItemKeywords = React.createClass({
   render: function() {
 
