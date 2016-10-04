@@ -42,7 +42,8 @@ const PackList = React.createClass({
       dataType: 'json',
       cache: false,
       success: function(data) {
-        this.setState({packs: data});
+        packs = Object.keys(data).map(function(key) { return data[key] });
+        this.setState({"packs": packs});
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(status, err.toString());
