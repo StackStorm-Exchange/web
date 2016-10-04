@@ -18,6 +18,6 @@ packs by hundreds.
 
 The web front-end just consumes and renders the index; it's written in React, and there's no 
 server side to it at all. And just look at that page: packs, packs everywhere! Maybe it's time
-to go create another one instead of reading this?
+to go create even more?
 
 That's all folks!
