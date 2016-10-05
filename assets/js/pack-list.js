@@ -42,7 +42,8 @@ const PackList = React.createClass({
       dataType: 'json',
       cache: false,
       success: function(data) {
-        this.setState({packs: data});
+        packs = Object.keys(data).map(function(key) { return data[key] });
+        this.setState({"packs": packs});
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(status, err.toString());
@@ -55,6 +56,7 @@ const PackList = React.createClass({
       return packs.filter(function(pack) {
         if (pack.author.indexOf(query) >= 0
           || pack.name.indexOf(query) >= 0
+          || pack.description.indexOf(query) >= 0
           || pack.version.toString().indexOf(query) >= 0
           || pack.keywords && pack.keywords.join('/').indexOf(query) >= 0)
           return true
