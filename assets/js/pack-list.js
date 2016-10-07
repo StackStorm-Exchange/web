@@ -38,7 +38,7 @@ const PackList = React.createClass({
   },
   componentDidMount: function() {
     $.ajax({
-      url: 'index/v1/index.json',
+      url: 'https://index.stackstorm.org/v1/index.json',
       dataType: 'json',
       cache: false,
       success: function(data) {
