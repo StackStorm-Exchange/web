@@ -1,23 +1,19 @@
-StackStorm Exchange Index
-=========================
+StackStorm Exchange Web Front-end
+=================================
 
-Welcome to `index`: the only StackStorm-Exchange repository to not contain a StackStorm pack.
-Indulge your natural curiosity: take a look around and learn a little about how StackStorm 
-Exchange works from the inside!
+[exchange.stackstorm.org](https://exchange.stackstorm.org) is a front-end for
+StackStorm Exchange, a collection of packs contributed by StackStorm users and 
+engineers. 
 
-This is a supplementary repository for StackStorm Exchange, containing the current pack index, 
-a simple web front-end, and CI materials: scripts, schemas, and configs.
+It's a simple React app rendering [the pack index](https://github.com/StackStorm-Exchange/index);
+there is no server-side to it at all, and the index is available for consumption 
+as a JSON file.
 
-The CI pipeline in all StackStorm Exchange packs is based on CircleCI (see `.circle/circle.yml` 
-for the reference config). It performs linting checks and schema validations, runs pack tests (if 
-present), and updates the index when necessary. 
+Just look at that page: packs, packs everywhere! Maybe it's time to go 
+create even more?
 
-Once the index is updated, it's stored as a static JSON file (see `index/`). While there are 
-certain drawbacks to this approach, there's no outstanding issues until we start counting our 
-packs by hundreds.
+#### Further reading
 
-The web front-end just consumes and renders the index; it's written in React, and there's no 
-server side to it at all. And just look at that page: packs, packs everywhere! Maybe it's time
-to go create even more?
+CI: [StackStorm-Exchange/ci](https://github.com/StackStorm-Exchange/ci).
 
-That's all folks!
+Index: [StackStorm-Exchange/index](https://github.com/StackStorm-Exchange/index).
