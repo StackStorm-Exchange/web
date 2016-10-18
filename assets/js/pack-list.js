@@ -17,10 +17,27 @@ const PackListItemKeywords = React.createClass({
   }
 });
 
+const PackListItemIcon = React.createClass({
+  getInitialState: function() {
+    return {
+      image_url: "https://index.stackstorm.org/v1/icons/"+this.props.name+".png"
+    };
+  },
+  useDefault: function() {
+    this.setState({"image_url": "assets/images/default-icon.png"});
+  },
+  render: function() {
+    return (
+      <img width="32" height="32" src={this.state.image_url} onError={this.useDefault} />
+    );
+  }
+});
+
 const PackListItem = React.createClass({
   render: function() {
     return (
       <tr>
+        <td className="icon"><PackListItemIcon name={this.props.name} /></td>
         <td className="pack">{this.props.name} <span className="version">{this.props.version}</span></td>
         <td className="description">{this.props.children} <PackListItemKeywords keywords={this.props.keywords} /></td>
         <td className="author">{this.props.author}</td>
@@ -77,7 +94,7 @@ const PackList = React.createClass({
         <table>
           <thead>
             <tr>
-              <th>Pack</th>
+              <th colSpan="2">Pack</th>
               <th>Description</th>
               <th>Author</th>
             </tr>

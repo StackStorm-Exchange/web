@@ -32,6 +32,12 @@ table td.pack {
   font-weight: bold;
   width: 100px;
 }
+table td.icon {
+  width: 32px;
+}
+table td.icon img {
+  margin-top: 3px;
+}
 table td.author {
   width: 100px;
 }
