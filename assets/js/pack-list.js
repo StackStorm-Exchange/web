@@ -44,6 +44,7 @@ const PackList = React.createClass({
       success: function(data) {
         var packs = Object.keys(data).map(function(key) { return data[key] });
         this.setState({"packs": packs});
+        type_packs(packs);
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(status, err.toString());
@@ -89,6 +90,19 @@ const PackList = React.createClass({
     );
   }
 });
+
+const type_packs = function (packs) {
+  var packNames = packs.map(function(pack) {
+    return pack.name;
+  });
+  $("#pack-install").typed({
+    strings: packNames,
+    shuffle: true,
+    backDelay: 2000,
+    loop: true,
+    showCursor: false
+  });
+};
 
 ReactDOM.render(
   <PackList />,
