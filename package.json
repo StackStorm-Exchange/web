@@ -1,0 +1,23 @@
+{
+  "name": "exchange-web",
+  "version": "1.0.0",
+  "description": "StackStorm Exchange Web Front-end",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StackStorm-Exchange/web.git"
+  },
+  "author": "Edward Medvedev",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/StackStorm-Exchange/web/issues"
+  },
+  "homepage": "https://github.com/StackStorm-Exchange/web#readme",
+  "devDependencies": {
+    "eslint": "^3.8.1",
+    "eslint-plugin-react": "^6.4.1"
+  }
+}
