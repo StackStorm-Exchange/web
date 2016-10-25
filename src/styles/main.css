@@ -1,4 +1,5 @@
-﻿html {
+﻿/*
+html {
   font-family: 'Helvetica Neue', Helvetica, 'Open Sans', Arial, sans-serif;
   font-weight: 300;
   font-size: 16px;
@@ -141,4 +142,18 @@ p.code span {
   border-radius: 3px;
   padding: 5px 10px;
   text-decoration: none;
+}
+
+#packs li.pack {
+  display: inline-block;
+  list-style: none;
+  width: 380px;
+}
+*/
+
+.main-container {
+  max-width: 1400px;
+}
+.card-block.install {
+  display: none;
 }

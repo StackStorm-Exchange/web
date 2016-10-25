@@ -1,5 +1,4 @@
-/* global React, ReactDOM, $ */
-
+import type_packs from './type_packs.js';
 
 const PackListItemKeywords = React.createClass({
   render: function() {
@@ -40,18 +39,68 @@ const PackListItemIcon = React.createClass({
 const PackListItem = React.createClass({
   render: function() {
     return (
-      <tr>
-        <td className="icon"><PackListItemIcon name={this.props.name} /></td>
-        <td className="pack">{this.props.name} <span className="version">{this.props.version}</span></td>
-        <td className="description">
+      <li className="pack card">
+        <div className="card-block">
+          <div className="icon"><PackListItemIcon name={this.props.name} /></div>
+          <h4 className="card-title">
+            {this.props.name} <span className="version">{this.props.version}</span>
+          </h4>
+          <div className="card-subtitle text-muted">{this.props.author}</div>
+          <div className="install">Install</div>
+        </div>
+        <div className="card-block description">
           {this.props.children}
           <PackListItemKeywords queryChange={this.props.queryChange} keywords={this.props.keywords} />
-        </td>
-        <td className="author">{this.props.author}</td>
-      </tr>
+        </div>
+        <div className="card-block content">
+          <PackContent content={this.props.content} />
+        </div>
+        <div className="card-block install">
+          <h5>Install {this.props.name}</h5>
+          <div>
+
+            <h6>StackStorm latest (2.1+)</h6>
+            <pre class="code">
+              st2 pack install <span class="name-highlight">{this.props.name}</span>
+            </pre>
+
+            <h6>StackStorm legacy</h6>
+            <pre class="code">
+              st2 run packs.install packs=<span class="name-highlight">{this.props.name}</span> repo_url=<span class="name-highlight">{this.props.repo_url}</span> subtree=false
+            </pre>
+
+            <h6>Clone from GitHub</h6>
+            <p>To download the pack manually, just clone it from git:</p>
+            <pre class="code">
+              git clone <span class="name-highlight">{this.props.repo_url}</span>
+            </pre>
+            <p>Open an issue or a Pull Request: <a href="https://github.com/StackStorm-Exchange/stackstorm-{this.props.name}">StackStorm-Exchange/stackstorm-{this.props.name}</a></p>
+
+          </div>
+        </div>
+      </li>
     );
   }
 });
+
+const PackContent = React.createClass({
+  render: function() {
+    var pack_content = [];
+
+    this.props.content.forEach(function(key) {
+      pack_content.push({type: key, count: this.props.content[key]});
+    });
+
+    return (
+      <ul>
+        {for item in this.pack_content}
+        <li><span class="type">{item.type}:</span> <span class="count">{item.count}</span></li>
+        {endfor}
+      </ul>
+    );
+  }
+});
+
 
 const PackList = React.createClass({
   getInitialState: function() {
@@ -99,38 +148,17 @@ const PackList = React.createClass({
     });
     return (
       <div>
-        <input id="pack-query" type="text" placeholder="Search the directory..." value={this.state.query} onChange={this.handleQueryChange} />
-        <table>
-          <thead>
-            <tr>
-              <th colSpan="2">Pack</th>
-              <th>Description</th>
-              <th>Author</th>
-            </tr>
-          </thead>
-          <tbody>
-            {packNodes}
-          </tbody>
-        </table>
+        <input id="pack-query" type="text" placeholder="Search" value={this.state.query} onChange={this.handleQueryChange} />
+
+          <div className="card-deck-wrapper">
+            <ul className="card-deck">
+                {packNodes}
+            </ul>
+          </div>
+
       </div>
     );
   }
 });
 
-const type_packs = function (packs) {
-  var packNames = packs.map(function(pack) {
-    return pack.name;
-  });
-  $("#pack-install").typed({
-    strings: packNames,
-    shuffle: true,
-    backDelay: 2000,
-    loop: true,
-    showCursor: false
-  });
-};
-
-ReactDOM.render(
-  <PackList />,
-  document.getElementById("packs")
-);
+export default PackList;
