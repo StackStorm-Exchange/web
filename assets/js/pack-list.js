@@ -1,12 +1,16 @@
+/* global React, ReactDOM, $ */
+
+
 const PackListItemKeywords = React.createClass({
   render: function() {
 
     if (!this.props.keywords)
       return null;
 
+    var queryChange = this.props.queryChange;
     var keywords = this.props.keywords.map(function(keyword) {
       return (
-        <li>{keyword}</li>
+        <li onClick={queryChange}>{keyword}</li>
       );
     });
     return (
@@ -39,7 +43,10 @@ const PackListItem = React.createClass({
       <tr>
         <td className="icon"><PackListItemIcon name={this.props.name} /></td>
         <td className="pack">{this.props.name} <span className="version">{this.props.version}</span></td>
-        <td className="description">{this.props.children} <PackListItemKeywords keywords={this.props.keywords} /></td>
+        <td className="description">
+          {this.props.children}
+          <PackListItemKeywords queryChange={this.props.queryChange} keywords={this.props.keywords} />
+        </td>
         <td className="author">{this.props.author}</td>
       </tr>
     );
@@ -48,18 +55,18 @@ const PackListItem = React.createClass({
 
 const PackList = React.createClass({
   getInitialState: function() {
-    return {query: '', packs: []};
+    return {query: "", packs: []};
   },
   handleQueryChange: function(e) {
-    this.setState({query: e.target.value});
+    this.setState({query: (e.target.value || e.target.innerHTML)});
   },
   componentDidMount: function() {
     $.ajax({
-      url: 'https://index.stackstorm.org/v1/index.json',
-      dataType: 'json',
+      url: "assets/index.json",
+      dataType: "json",
       cache: false,
       success: function(data) {
-        var packs = Object.keys(data['packs']).map(function(key) { return data['packs'][key] });
+        var packs = Object.keys(data["packs"]).map(function(key) { return data["packs"][key]; });
         this.setState({"packs": packs});
         type_packs(packs);
       }.bind(this),
@@ -67,23 +74,25 @@ const PackList = React.createClass({
         console.error(status, err.toString());
       }.bind(this)
     });
-   },
+  },
   render: function() {
-    var applyFilter = function(query, packs) {
+    var handleQueryChange = this.handleQueryChange;
+    const applyFilter = function(query, packs) {
       query = query || "";
       return packs.filter(function(pack) {
         if (pack.author.indexOf(query) >= 0
           || pack.name.indexOf(query) >= 0
           || pack.description.indexOf(query) >= 0
           || pack.version.toString().indexOf(query) >= 0
-          || pack.keywords && pack.keywords.join('/').indexOf(query) >= 0)
-          return true
+          || pack.keywords && pack.keywords.join("/").indexOf(query) >= 0)
+          return true;
       });
     };
     var packNodes = applyFilter(this.state.query, this.state.packs).map(function(pack) {
       return (
         <PackListItem author={pack.author} name={pack.name}
-                      version={pack.version} keywords={pack.keywords}>
+                      version={pack.version} keywords={pack.keywords}
+                      queryChange={handleQueryChange}>
           {pack.description}
         </PackListItem>
       );
@@ -123,5 +132,5 @@ const type_packs = function (packs) {
 
 ReactDOM.render(
   <PackList />,
-  document.getElementById('packs')
+  document.getElementById("packs")
 );

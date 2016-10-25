@@ -63,6 +63,7 @@ ul.keywords li {
   border: 1px solid #ccc;
   background: #ddd;
   border-radius: 3px;
+  cursor: default;
 }
 h1 {
   font-weight: 300;
