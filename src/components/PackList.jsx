@@ -9,7 +9,7 @@ const PackListItemKeywords = React.createClass({
     var queryChange = this.props.queryChange;
     var keywords = this.props.keywords.map(function(keyword) {
       return (
-        <li onClick={queryChange}>{keyword}</li>
+        <li key={keyword} onClick={queryChange}>{keyword}</li>
       );
     });
     return (
@@ -39,65 +39,78 @@ const PackListItemIcon = React.createClass({
 const PackListItem = React.createClass({
   render: function() {
     return (
-      <li className="pack card">
-        <div className="card-block">
-          <div className="icon"><PackListItemIcon name={this.props.name} /></div>
-          <h4 className="card-title">
-            {this.props.name} <span className="version">{this.props.version}</span>
-          </h4>
-          <div className="card-subtitle text-muted">{this.props.author}</div>
-          <div className="install">Install</div>
-        </div>
-        <div className="card-block description">
-          {this.props.children}
-          <PackListItemKeywords queryChange={this.props.queryChange} keywords={this.props.keywords} />
-        </div>
-        <div className="card-block content">
-          <PackContent content={this.props.content} />
-        </div>
-        <div className="card-block install">
-          <h5>Install {this.props.name}</h5>
-          <div>
 
-            <h6>StackStorm latest (2.1+)</h6>
-            <pre class="code">
-              st2 pack install <span class="name-highlight">{this.props.name}</span>
-            </pre>
 
-            <h6>StackStorm legacy</h6>
-            <pre class="code">
-              st2 run packs.install packs=<span class="name-highlight">{this.props.name}</span> repo_url=<span class="name-highlight">{this.props.repo_url}</span> subtree=false
-            </pre>
+        <div className="card pack">
+          <div className="card-header">
+            <div className="icon"><PackListItemIcon name={this.props.name} /></div>
+            <h4 className="card-title">
+              {this.props.name}
+            </h4>
+          </div>
+          <div className="card-block description">
+            {this.props.children}
+            <PackListItemKeywords queryChange={this.props.queryChange} keywords={this.props.keywords} />
+          </div>
+          <div className="card-block content">
+            <PackContent content={this.props.content} />
+          </div>
+          <div className="card-footer">
+          <div className="row">
+            <div className="version">v{this.props.version}</div>
+            <div className="author">{this.props.author}</div>
+          </div>
+          </div>
+          <div className="card-block install">
+            <h5>Install {this.props.name}</h5>
+            <div>
 
-            <h6>Clone from GitHub</h6>
-            <p>To download the pack manually, just clone it from git:</p>
-            <pre class="code">
-              git clone <span class="name-highlight">{this.props.repo_url}</span>
-            </pre>
-            <p>Open an issue or a Pull Request: <a href="https://github.com/StackStorm-Exchange/stackstorm-{this.props.name}">StackStorm-Exchange/stackstorm-{this.props.name}</a></p>
+              <h6>Install</h6>
+              <pre className="code">
+                st2 pack install <span className="name-highlight">{this.props.name}</span>
+              </pre>
 
+              <h6>StackStorm legacy</h6>
+              <pre className="code">
+                st2 run packs.install packs=<span className="name-highlight">{this.props.name}</span> repo_url=<span className="name-highlight">{this.props.repo_url}</span> subtree=false
+              </pre>
+
+              <h6>Work on GitHub</h6>
+              <p>To download the pack manually, just clone it from git:</p>
+              <pre className="code">
+                git clone <span className="name-highlight">{this.props.repo_url}</span>
+              </pre>
+              <p>Open an issue or a Pull Request: <a href="https://github.com/StackStorm-Exchange/stackstorm-{this.props.name}">StackStorm-Exchange/stackstorm-{this.props.name}</a></p>
+
+            </div>
           </div>
         </div>
-      </li>
+
     );
   }
 });
 
 const PackContent = React.createClass({
   render: function() {
-    var pack_content = [];
 
-    this.props.content.forEach(function(key) {
-      pack_content.push({type: key, count: this.props.content[key]});
-    });
+    if (this.props.content) {
+      var pack_content = [];
 
-    return (
-      <ul>
-        {for item in this.pack_content}
-        <li><span class="type">{item.type}:</span> <span class="count">{item.count}</span></li>
-        {endfor}
-      </ul>
-    );
+      this.props.content.forEach(function(key) {
+        pack_content.push({type: key, count: this.props.content[key]});
+      });
+
+      return (
+        <ul>
+          {this.pack_content.map(function(item, key){
+            <li><span className="type">{item.type}:</span> <span className="count">{item.count}</span></li>
+          })};
+        </ul>
+      );
+    };
+
+    return null;
+
   }
 });
 
@@ -139,7 +152,7 @@ const PackList = React.createClass({
     };
     var packNodes = applyFilter(this.state.query, this.state.packs).map(function(pack) {
       return (
-        <PackListItem author={pack.author} name={pack.name}
+        <PackListItem key={pack.name} author={pack.author} name={pack.name}
                       version={pack.version} keywords={pack.keywords}
                       queryChange={handleQueryChange}>
           {pack.description}
@@ -150,13 +163,12 @@ const PackList = React.createClass({
       <div>
         <input id="pack-query" type="text" placeholder="Search" value={this.state.query} onChange={this.handleQueryChange} />
 
-          <div className="card-deck-wrapper">
-            <ul className="card-deck">
-                {packNodes}
-            </ul>
-          </div>
+                <div className="pack-deck card-columns">
+                    {packNodes}
+                </div>
 
       </div>
+
     );
   }
 });

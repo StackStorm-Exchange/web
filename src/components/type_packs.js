@@ -1,4 +1,4 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.4/typed.min.js"></script>
+import './vendor/typed.min.js';
 
 const type_packs = function (packs) {
   var packNames = packs.map(function(pack) {

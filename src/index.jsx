@@ -1,15 +1,12 @@
+import './components/vendor/reamaze.min.js';
+import './components/vendor/analytics.js';
+import './components/vendor/reamaze_widget.js';
 
-import 'bootstrap/bootstrap.js';
-
-<script type="text/javascript" src="https://d3itxuyrq7vzpz.cloudfront.net/assets/reamaze.js"></script>
+import './styles/main.css';
 
 import {render} from 'react-dom';
 import PackList from './components/PackList.jsx';
 
-import './components/utils.jsx';
-
-import 'bootstrap/bootstrap.css';
-import './styles/main.css';
 
 render(
   <PackList />,

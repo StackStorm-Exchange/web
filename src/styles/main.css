@@ -13,44 +13,6 @@ body {
 #packs {
   margin: 40px 0;
 }
-table {
-  width: 960px;
-  border-collapse: collapse;
-  margin: 10px 0;
-}
-table th {
-  text-align: left;
-  padding: 10px;
-  font-size: 18px;
-  font-weight: normal;
-}
-table td {
-  vertical-align: top;
-  border-top: 1px solid #eee;
-  padding: 15px 10px;
-}
-table td.pack {
-  font-weight: bold;
-  width: 100px;
-}
-table td.icon {
-  width: 32px;
-}
-table td.icon img {
-  margin-top: 3px;
-}
-table td.author {
-  width: 100px;
-}
-table td.pack .version {
-  display: block;
-  font-size: 14px;
-  margin-top: 3px;
-  font-weight: normal;
-}
-table td .version:before {
-  content: 'v';
-}
 ul.keywords {
   margin: 10px 0 0 0;
   padding: 0;
@@ -65,21 +27,6 @@ ul.keywords li {
   background: #ddd;
   border-radius: 3px;
   cursor: default;
-}
-h1 {
-  font-weight: 300;
-  font-size: 38px;
-}
-h1:after {
-  content: '';
-  display: block;
-  border-bottom: 3px solid #777;
-  width: 80px;
-  margin-top: 28px;
-}
-h1 span {
-  color: #f58221;
-  font-weight: 400;
 }
 p.large {
   font-size: 24px;
@@ -120,17 +67,6 @@ input[type=text] {
   font-size: 16px;
   border: 1px solid #bbb;
 }
-p.code {
-  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-  background: #444;
-  color: #ddd;
-  line-height: 140%;
-  padding: 10px 20px;
-  border-radius: 5px;
-}
-p.code span {
-  color: #ada;
-}
 
 #pack-submit {
   position: absolute;
@@ -143,17 +79,112 @@ p.code span {
   padding: 5px 10px;
   text-decoration: none;
 }
-
-#packs li.pack {
-  display: inline-block;
-  list-style: none;
-  width: 380px;
-}
 */
 
 .main-container {
   max-width: 1400px;
 }
+
+.pack-deck.card-columns {
+  column-count: 1;
+}
+@media(min-width: 655px) {
+  .pack-deck.card-columns {
+    column-count: 2;
+  }
+}
+@media(min-width: 980px) {
+  .pack-deck.card-columns {
+    column-count: 3;
+  }
+}
+@media (min-width: 1300px) {
+  .pack-deck.card-columns {
+    column-count: 4;
+  }
+}
+
+html body {
+  background: #fafafa;
+}
+
+h1.header {
+  font-weight: 300;
+  font-size: 38px;
+}
+h1.header:after {
+  content: '';
+  display: block;
+  border-bottom: 3px solid #777;
+  width: 80px;
+  margin-top: 28px;
+}
+h1.header span {
+  color: #f58221;
+  font-weight: 400;
+}
+
+pre.code {
+  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+  background: #444;
+  color: #ddd;
+  line-height: 140%;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+pre.code span {
+  color: #ada;
+}
+
+
+.card.pack {
+  margin-bottom: 20px;
+  box-shadow: 1px 1px 1px 0px #eee;
+}
 .card-block.install {
   display: none;
+}
+.card .card-header {
+  position: relative;
+  padding-left: 60px;
+}
+.card .card-header .icon {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: white;
+  border-radius: 5px;
+}
+.card .card-header .btn {
+  position: absolute;
+  right: 15px;
+  top: 13px;
+}
+.card .card-header .icon img {
+  border-radius: 5px;
+}
+.card .card-header h4 {
+  margin: 8px 0 10px;
+  font-size: 20px;
+}
+.card .card-header h4 .version {
+  color: #aaa;
+}
+
+.card.pack .card-header,
+.card.pack .card-footer {
+  background: white;
+  border: none;
+}
+.card.pack .card-footer .author,
+.card.pack .card-footer .version {
+  margin: 0 15px;
+  font-size: 12px;
+  color: #aaa;
+}
+.card.pack .card-footer .author {
+  float: right;
+}
+.card.pack .card-footer .version {
+  float: left;
 }
