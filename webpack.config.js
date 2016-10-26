@@ -7,7 +7,7 @@ var BUILD_DIR = path.resolve(__dirname, "docs");
 var APP_DIR = path.resolve(__dirname, "src");
 
 var config = {
-  entry: [ APP_DIR + "/index.jsx", 'bootstrap-loader' ],
+  entry: APP_DIR + "/index.jsx",
   output: {
     path: BUILD_DIR,
     filename: "assets/bundle.js"
@@ -40,7 +40,6 @@ var config = {
       jQuery: "jquery",
       "window.jQuery": "jquery",
       React: "react",
-      _: "lodash",
 
       Tether: "tether",
       "window.Tether": "tether",
@@ -56,7 +55,8 @@ var config = {
       Tooltip: "exports?Tooltip!bootstrap/js/dist/tooltip",
       Util: "exports?Util!bootstrap/js/dist/util",
     }),
-    new ExtractTextPlugin("assets/bundle.css")
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.DedupePlugin()
   ]
 };
 

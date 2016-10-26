@@ -1,18 +1,25 @@
 ﻿/*
+
+#pack-submit {
+  position: absolute;
+  top: 10px;
+  right: 00px;
+  border: 1px solid #f58221;
+  color: #f58221;
+  font-size: 16px;
+  border-radius: 3px;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+*/
+
 html {
   font-family: 'Helvetica Neue', Helvetica, 'Open Sans', Arial, sans-serif;
   font-weight: 300;
   font-size: 16px;
   color: #56565a;
 }
-body {
-  width: 960px;
-  margin: 0px auto;
-  position: relative;
-}
-#packs {
-  margin: 40px 0;
-}
+
 ul.keywords {
   margin: 10px 0 0 0;
   padding: 0;
@@ -28,9 +35,7 @@ ul.keywords li {
   border-radius: 3px;
   cursor: default;
 }
-p.large {
-  font-size: 24px;
-}
+
 footer {
   padding: 20px 0;
   border-top: 1px solid #aaa;
@@ -60,26 +65,6 @@ footer ul li:last-child:after {
 footer ul li a {
   color: #f58221;
 }
-input[type=text] {
-  width: 400px;
-  padding: 6px 10px;
-  border-radius: 5px;
-  font-size: 16px;
-  border: 1px solid #bbb;
-}
-
-#pack-submit {
-  position: absolute;
-  top: 10px;
-  right: 00px;
-  border: 1px solid #f58221;
-  color: #f58221;
-  font-size: 16px;
-  border-radius: 3px;
-  padding: 5px 10px;
-  text-decoration: none;
-}
-*/
 
 .main-container {
   max-width: 1400px;
@@ -140,6 +125,9 @@ pre.code span {
 .card.pack {
   margin-bottom: 20px;
   box-shadow: 1px 1px 1px 0px #eee;
+}
+.card.pack:hover {
+  box-shadow: 1px 1px 1px 0px #ace;
 }
 .card-block.install {
   display: none;

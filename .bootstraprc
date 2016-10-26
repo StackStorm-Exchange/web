@@ -20,7 +20,7 @@ styleLoaders:
 # It depends on value of NODE_ENV environment variable
 # This param can also be set in webpack config:
 #   entry: 'bootstrap-loader/extractStyles'
-extractStyles: false
+# extractStyles: true
 # env:
 #   development:
 #     extractStyles: false
@@ -32,20 +32,20 @@ extractStyles: false
 # Thus, derived Bootstrap variables can depend on values from here.
 # See the Bootstrap _variables.scss file for examples of derived Bootstrap variables.
 #
-# preBootstrapCustomizations: ./path/to/bootstrap/pre-customizations.scss
+preBootstrapCustomizations: src/styles/variables.scss
 
 
 # This gets loaded after bootstrap/variables is loaded
 # Thus, you may customize Bootstrap variables
 # based on the values established in the Bootstrap _variables.scss file
 #
-# bootstrapCustomizations: ./path/to/bootstrap/customizations.scss
+# bootstrapCustomizations: src/styles/customizations.scss
 
 
 # Import your custom styles here
 # Usually this endpoint-file contains list of @imports of your application styles
 #
-# appStyles: ./path/to/your/app/styles/endpoint.scss
+appStyles: src/styles/main.scss
 
 
 ### Bootstrap styles

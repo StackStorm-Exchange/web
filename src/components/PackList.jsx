@@ -47,24 +47,26 @@ const PackListItem = React.createClass({
             <h4 className="card-title">
               {this.props.name}
             </h4>
+            <a className="btn btn-sm btn-outline-info" href="">GitHub</a>
+            <div className="btn btn-sm btn-outline-primary">D</div>
           </div>
           <div className="card-block description">
             {this.props.children}
             <PackListItemKeywords queryChange={this.props.queryChange} keywords={this.props.keywords} />
           </div>
-          <div className="card-block content">
-            <PackContent content={this.props.content} />
-          </div>
           <div className="card-footer">
-          <div className="row">
-            <div className="version">v{this.props.version}</div>
-            <div className="author">{this.props.author}</div>
-          </div>
+            <div className="row">
+              <div className="version">v{this.props.version}</div>
+              <div className="author">{this.props.author}</div>
+            </div>
           </div>
           <div className="card-block install">
             <h5>Install {this.props.name}</h5>
             <div>
 
+          <div className="card-block content">
+            <PackContent content={this.props.content} />
+          </div>
               <h6>Install</h6>
               <pre className="code">
                 st2 pack install <span className="name-highlight">{this.props.name}</span>
