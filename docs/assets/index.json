@@ -1,11 +1,19 @@
 {
     "metadata": {
-        "generated_ts": 1477316710,
-        "hash": "f337a381ba5e21c3d331d32f7939488c"
+        "generated_ts": 1478250611,
+        "hash": "2e455648d3f52177fa5a098ba89e97b2"
     },
     "packs": {
         "aws": {
             "author": "st2-dev",
+            "content": {
+                "actions": {
+                    "count": 637
+                },
+                "sensors": {
+                    "count": 2
+                }
+            },
             "description": "st2 content pack containing Amazon Web Services integrations.",
             "email": "info@stackstorm.com",
             "keywords": [
@@ -49,6 +57,11 @@
         },
         "datadog": {
             "author": "Lisa Bekdache",
+            "content": {
+                "actions": {
+                    "count": 51
+                }
+            },
             "description": "datadog",
             "email": "lisa.bekdache@dailymotion.com",
             "keywords": [
@@ -62,6 +75,11 @@
         },
         "device42": {
             "author": "Device42 Inc.",
+            "content": {
+                "actions": {
+                    "count": 2
+                }
+            },
             "description": "Device42 Actions for StackStorm",
             "email": "support@device42.com",
             "name": "device42",
@@ -84,6 +102,17 @@
         },
         "duo": {
             "author": "Jon Middleton",
+            "content": {
+                "actions": {
+                    "count": 6
+                },
+                "aliases": {
+                    "count": 4
+                },
+                "tests": {
+                    "count": 4
+                }
+            },
             "description": "Use Duo 2FA authenication with StackStorm actions.",
             "email": "jon.middleton@pulsant.com",
             "keywords": [
@@ -252,6 +281,14 @@
         },
         "mqtt": {
             "author": "James Fryman",
+            "content": {
+                "actions": {
+                    "count": 1
+                },
+                "sensors": {
+                    "count": 1
+                }
+            },
             "description": "MQTT Integration for StackStorm",
             "email": "james@stackstorm.com",
             "name": "mqtt",
@@ -274,6 +311,11 @@
         },
         "nest": {
             "author": "James Fryman",
+            "content": {
+                "actions": {
+                    "count": 11
+                }
+            },
             "description": "StackStorm integration with Nest Thermostats",
             "email": "james@stackstorm.com",
             "name": "nest",
@@ -332,6 +374,11 @@
         },
         "powerpoint": {
             "author": "Anthony Shaw",
+            "content": {
+                "actions": {
+                    "count": 1
+                }
+            },
             "description": "The bestest pack on Earth!!111!1",
             "email": "anthonyshaw@apache.org",
             "name": "powerpoint",
@@ -459,6 +506,14 @@
         },
         "vdx": {
             "author": "st2-dev",
+            "content": {
+                "actions": {
+                    "count": 55
+                },
+                "tests": {
+                    "count": 52
+                }
+            },
             "description": "Brocade VDX integration pack.",
             "email": "info@stackstorm.com",
             "name": "vdx",
@@ -479,6 +534,14 @@
         },
         "vsphere": {
             "author": "Paul Mulvihill",
+            "content": {
+                "actions": {
+                    "count": 21
+                },
+                "tests": {
+                    "count": 12
+                }
+            },
             "description": "st2 content pack containing vsphere integrations.",
             "email": "paul.mulvihill@pulsant.com",
             "name": "vsphere",

@@ -1,0 +1,37 @@
+[
+	{
+		"id": "picks",
+		"displayName": "Staff Picks",
+		"packs": [
+			"aws",
+			"sensu"
+		]
+	},
+	{
+		"id": "cloud",
+		"displayName": "Cloud Providers",
+		"packs": [
+			"aws",
+			"rackspace"
+		]
+	},
+	{
+		"id": "monitoring",
+		"displayName": "Monitoring",
+		"packs": [
+			"sensu",
+			"orion",
+			"icinga2"
+		]
+	},
+	{
+		"id": "curiosities",
+		"displayName": "Curiosities",
+		"packs": [
+			"powerpoint",
+			"tesla",
+			"hue",
+			"nest"
+		]
+	}
+]

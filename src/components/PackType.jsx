@@ -1,4 +1,4 @@
-import './vendor/typed.min.js';
+import 'components/vendor/typed';
 
 const type_packs = function (packs) {
   var packNames = packs.map(function(pack) {

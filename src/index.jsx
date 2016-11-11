@@ -1,14 +1,30 @@
 import 'bootstrap-loader';
+import 'font-awesome-loader';
 
-import './components/vendor/reamaze.min.js';
-import './components/vendor/analytics.js';
-import './components/vendor/reamaze_widget.js';
+import { render } from 'react-dom';
+import React from 'react';
+import $ from 'jquery';
 
-import {render} from 'react-dom';
-import PackList from './components/PackList.jsx';
+import 'components/vendor/reamaze';
+import 'components/vendor/analytics';
+import 'components/vendor/reamazeWidget';
+
+import Conveyor from 'components/Conveyor';
+import PackView from 'components/PackView';
 
 
 render(
-  <PackList />,
-  document.getElementById("packs")
+  <PackView />,
+  document.getElementById('packs')
 );
+
+render(
+  <Conveyor />,
+  document.getElementById('conveyor')
+);
+
+$('body').tooltip({
+  selector: '[data-toggle="tooltip"]',
+  delay: 100,
+  html: true,
+});

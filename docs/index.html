@@ -1,36 +1,61 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <meta charset="UTF-8" />
     <title>StackStorm Exchange</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
   </head>
-
   <body>
-
-    <div class="container-fluid main-container">
-
-      <h1 class="header"><span>Stack</span>Storm Pack Exchange</h1>
-      <a id="pack-submit" href="#" data-reamaze-lightbox="contact">Submit a pack</a>
-      <p class="large">Dozens of ready-made integration packs that make StackStorm complete.</p>
-      <pre class="code">st2 pack install <span id="pack-install">mypack</span></pre>
-
-      <div id="packs"></div>
-
-      <footer>
-        Brocade Communications Inc, 2016.
-        <ul>
-          <li><a href="https://stackstorm.org" target="_blank">StackStorm</a></li>
-          <li><a href="https://github.com/StackStorm" target="_blank">StackStorm on GitHub</a></li>
-          <li><a href="https://github.com/StackStorm-Exchange" target="_blank">Pack Exchange on GitHub</a></li>
-        </ul>
-      </footer>
-
+    <header>
+      <a id="pack-submit" class="pack-submit pull-right" href="#" data-reamaze-lightbox="contact">Submit a pack</a>
+    </header>
+    
+    <div class="jumbo">
+      
+      <div id="conveyor"></div>
+      
+      <div class="container-fluid main-container">
+        <div class="row">
+          <div class="col-md-8 offset-md-2 content">
+            <h1 class="header"><span>Stack</span>Storm Exchange</h1>
+            <p class="large">Automate all the things you already know and use<br/>with dozens of ready-made integration packs.</p>
+            <p class="large">Cloud providers, monitoring services, lightbulbs.</p>
+            <pre class="code">st2 pack install <span id="pack-install">mypack</span></pre>
+          </div>
+        </div>
+      </div>
+      
     </div>
-
+    
+    <div class="container-fluid main-container">
+      <div id="packs"></div>
+    </div>
+    
+    <footer>
+      <div class="container-fluid main-container">
+        © 2016 StackStorm <span class="heart">❤️</span>
+        <ul class="footer-nav">
+          <li>
+            <a href="https://stackstorm.org" target="_blank">
+              <span>StackStorm.org</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/StackStorm" target="_blank">
+              <i class="fa fa-github"></i>
+              <span>StackStorm</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/StackStorm-Exchange" target="_blank">
+              <i class="fa fa-github"></i>
+              <span>StackStorm-Exchange</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+    
     <script type="text/javascript" src="assets/bundle.js"></script>
-
   </body>
-
 </html>

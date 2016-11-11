@@ -4,35 +4,20 @@ module.exports = {
         "es6": true,
         "node": true
     },
-    "extends": "eslint:recommended",
+    "extends": "airbnb",
     "installedESLint": true,
     "parserOptions": {
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true,
             "jsx": true,
             "es6": true
-        }
+        },
+        sourceType: "module"
     },
     "plugins": [
         "react"
     ],
     "rules": {
-        "indent": [
-            "error",
-            2
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "double"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
         "no-console": [
             "error",
             { "allow": ["warn", "error"] }
@@ -40,5 +25,9 @@ module.exports = {
         "react/jsx-uses-vars": [
             2
         ],
-    },
+        "react/no-unused-prop-types": [
+            "error",
+            { "skipShapeProps": true }
+        ]
+    }
 };
