@@ -4,11 +4,19 @@
     <meta charset="UTF-8" />
     <title>StackStorm Exchange</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-16x16.png" sizes="16x16">
   </head>
   <body>
-    <header>
-      <a id="pack-submit" class="pack-submit pull-right" href="#" data-reamaze-lightbox="contact">Submit a pack</a>
-    </header>
+    <nav class="top-menu">
+      <div class="container-fluid main-container">
+        <img src="/assets/images/st2-logo.png" alt="StackStorm" height="35" width="147" />
+        <ul class="row">
+          <li id="pack-create"></li>
+          <li id="pack-submit"></li>
+        </ul>
+      </div>
+    </nav>
     
     <div class="jumbo">
       
@@ -27,9 +35,9 @@
       
     </div>
     
-    <div class="container-fluid main-container">
-      <div id="packs"></div>
-    </div>
+    
+    <div id="packs" class="packs-view-container"></div>
+    
     
     <footer>
       <div class="container-fluid main-container">
@@ -55,6 +63,8 @@
         </ul>
       </div>
     </footer>
+    
+    <div id="popup-container"></div>
     
     <script type="text/javascript" src="assets/bundle.js"></script>
   </body>

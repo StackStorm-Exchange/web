@@ -1,15 +1,13 @@
 import 'components/vendor/typed';
 
-const type_packs = function (packs) {
-  var packNames = packs.map(function(pack) {
-    return pack.name;
-  });
-  $("#pack-install").typed({
+const type_packs = (packs) => {
+  const packNames = packs.map(pack => pack.name);
+  $('#pack-install').typed({
     strings: packNames,
     shuffle: true,
     backDelay: 2000,
     loop: true,
-    showCursor: false
+    showCursor: false,
   });
 };
 

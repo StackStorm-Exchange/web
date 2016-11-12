@@ -13,8 +13,11 @@ const Pack = React.createClass({
           <h4 className="card-title">
             {this.props.name}
           </h4>
-          <a className="btn btn-sm btn-outline-secondary fa fa-github" href="" />
-          <div className="btn btn-sm btn-outline-primary fa fa-download" />
+          <a
+            className="btn btn-sm btn-outline-secondary" href={this.props.repo_url}
+            rel="noopener noreferrer" target="_blank"
+          ><i className="fa fa-github" /></a>
+          <div className="btn btn-sm btn-outline-primary"><i className="fa fa-download" /></div>
         </div>
         <div className="card-block description">
           {this.props.children}
@@ -136,25 +139,30 @@ const PackContent = React.createClass({
 
 const PackView = React.createClass({
   getInitialState() {
-    return { query: '', packs: [], category: -1, masonry: null };
-  },
-  handleQueryChange(e) {
-    this.setState({ query: (e.target.value || e.target.innerHTML) });
+    return { query: '', packs: [], category: '-1', masonry: null, queryTimer: null };
   },
   categoryToggle(e) {
     if (this.state.category === e.target.dataset.category) {
-      this.setState({ category: -1 });
+      this.setState({ category: '-1' });
     } else {
       this.setState({ category: e.target.dataset.category });
     }
   },
+  loadHash() {
+    const query = window.location.hash.slice(1);
+    if (this.state.query !== query) {
+      this.setState({ query });
+    }
+    this.queryInput.value = query;
+  },
   componentDidMount() {
+    const loadHash = this.loadHash;
     $.ajax({
       url: 'assets/index.json',
       dataType: 'json',
       cache: false,
       success: function (data) {
-        const packs = Object.keys(data.packs).map((key) => { return data.packs[key]; });
+        const packs = Object.keys(data.packs).map(key => data.packs[key]);
         this.setState({ packs });
         type_packs(packs);
       }.bind(this),
@@ -162,17 +170,27 @@ const PackView = React.createClass({
         console.error(status, err.toString());
       },
     });
-    this.setState({
-      masonry: new Masonry('.pack-deck', {
-        itemSelector: '.card',
-        columnWidth: '.pack-sizer',
-        percentPosition: true,
-      }),
+
+    this.state.masonry = new Masonry('.pack-deck', {
+      itemSelector: '.card',
+      columnWidth: '.pack-sizer',
+      percentPosition: true,
     });
+
+    loadHash();
+    window.addEventListener('hashchange', loadHash);
   },
   componentDidUpdate() {
     this.state.masonry.reloadItems();
     this.state.masonry.layout();
+  },
+  handleQueryChange(e) {
+    const query = e.target.value || e.target.innerHTML;
+    clearTimeout(this.state.queryTimer);
+    this.state.queryTimer = setTimeout(() => {
+      window.location.hash = `#${query}`;
+      this.setState({ query });
+    }, 200);
   },
   categories,
   render() {
@@ -188,63 +206,62 @@ const PackView = React.createClass({
           || pack.description.indexOf(query) >= 0
           || pack.version.toString().indexOf(query) >= 0
           || (pack.keywords && pack.keywords.join('/').indexOf(query) >= 0))
-          && (currentCategory == -1 || categories[currentCategory].packs.indexOf(pack.name) >= 0)) {
+          && (currentCategory === '-1' || categories[currentCategory].packs.indexOf(pack.name) >= 0)) {
           return true;
         }
         return false;
       });
     };
-    const packNodes = applyFilter(this.state.query, this.state.packs).map((pack) => {
-      return (
-        <Pack
-          key={pack.name} author={pack.author} name={pack.name}
-          version={pack.version} keywords={pack.keywords}
-          content={pack.content} queryChange={handleQueryChange}
-        >
-          {pack.description}
-        </Pack>
-      );
-    });
+    const packNodes = applyFilter(this.state.query, this.state.packs).map(pack =>
+       (
+         <Pack
+           key={pack.name} queryChange={handleQueryChange} {...pack}
+         >
+           {pack.description}
+         </Pack>
+      )
+    );
 
     return (
       <div>
-        <div className="pack-search row">
-          <div className="col-md-5">
-            <div className="search-block">
-              <input
-                id="pack-query" className="form-control"
-                type="text" placeholder="Search" value={this.state.query}
-                onChange={this.handleQueryChange}
-              />
-            </div>
-          </div>
-          <div className="col-md-7">
-            <div className="search-block">
-              <ul>
-                <li
-                  className={`btn btn-secondary${currentCategory === -1 ? ' active' : ''}`}
-                  onClick={categoryToggle} data-category="-1"
-                >
-                  All
-                </li>
-                {categories.map((category, index) => (
-                  <li
-                    className={`btn btn-secondary${currentCategory === index ? ' active' : ''}`}
-                    onClick={categoryToggle} data-category={index}
-                    key={index}
-                  >
-                    {category.displayName}
-                  </li>
-                ))}
-              </ul>
+        <div className="pack-search">
+          <div className="container-fluid main-container">
+            <div className="row">
+
+              <div className="search-block filter-input-block col-md-2">
+                <input
+                  id="pack-query" className="form-control"
+                  type="text" placeholder="Search" ref={(c) => { this.queryInput = c; }}
+                  onChange={this.handleQueryChange}
+                />
+                <i className="fa fa-search" />
+              </div>
+
+
+              <div className="search-block col-md-10 filter-categories">
+                <div className="btn-group">
+
+                  <a onClick={categoryToggle} data-category="-1" tabIndex="-1" className={`category-btn btn btn-outline-primary${currentCategory === '-1' ? ' active' : ''}`}>
+                    All
+                  </a>
+                  {categories.map((category, index) => (
+                    <a key={index} className={`category-btn btn btn-outline-primary${currentCategory === index.toString() ? ' active' : ''}`} onClick={categoryToggle} data-category={index} tabIndex="-1">
+                      {category.displayName}
+                    </a>
+                  ))}
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
-        <div className="pack-deck">
+        <div className="container-fluid main-container">
+          <div className="pack-deck">
 
-          <div className="pack-sizer" />
-          {packNodes}
+            <div className="pack-sizer" />
+            {packNodes}
 
+          </div>
         </div>
       </div>
     );

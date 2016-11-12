@@ -122,11 +122,11 @@ $belt-height: 30px;
   opacity: .4;
 
   .belt {
-    position: relative;
-    left: -180px;
-    display: inline-block;
+    position: absolute;
+    right: 60px;
+    bottom: 30px;
+    left: -200px;
 
-    width: calc(100% + 200px);
     height: $belt-height;
 
     border: $conveyor-border;
@@ -160,6 +160,19 @@ $belt-height: 30px;
     padding-bottom: 75%;
 
     border: $conveyor-border;
+
+    &.unicorn {
+      background: url('/assets/images/unicorn.png') no-repeat bottom;
+      background-size: contain;
+
+      & > * {
+        display: none;
+      }
+
+      &::after {
+        display: none;
+      }
+    }
 
     // Tape
     &::before {
@@ -245,7 +258,7 @@ $belt-height: 30px;
 
     height: calc(100% - #{$belt-height});
     padding-bottom: 6px;
-    margin: 0;
+    margin: 0 30px;
 
     text-align: justify;
     vertical-align: bottom;

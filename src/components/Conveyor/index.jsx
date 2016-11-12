@@ -3,7 +3,7 @@ import './index.scss';
 
 const freakOut = true;
 const wiggleBoxes = false;
-const LABELS = ['none', 'solid', 'up'];
+const LABELS = ['none', 'none', 'solid', 'up', 'up'];
 
 const random = (maximum, minimum = 0) =>
   Math.floor(Math.random() * ((maximum - minimum) + 1)) + minimum;
@@ -11,6 +11,9 @@ const random = (maximum, minimum = 0) =>
 const choose = array => array[random(array.length - 1)];
 
 const Box = ({ width, offset, label = 'two' }) => {
+  let newWidth;
+  let newHeight;
+  let labelOffset;
   const params = {
     style: {
       width: `${width}px`,
@@ -19,8 +22,9 @@ const Box = ({ width, offset, label = 'two' }) => {
     className: 'box',
   };
   if (freakOut) {
-    const newWidth = width * random(10, 9) * 0.1;
-    const newHeight = newWidth * random(8, 7) * 0.1;
+    newWidth = width * random(10, 9) * 0.1;
+    newHeight = newWidth * random(8, 7) * 0.1;
+    labelOffset = `${random(55, 25)}%`;
     params.style.left = `${offset}px`;
     params.style.width = newWidth;
     params.style.paddingBottom = newHeight;
@@ -28,10 +32,13 @@ const Box = ({ width, offset, label = 'two' }) => {
     params.className += ` box-logo-scale-${random(5)}`;
     params.className += ` box-logo-drag-${random(3)}`;
     params.className += ` box-tape-size-${random(3)}`;
+    if (random(500) === 500) {
+      params.className += ' unicorn';
+    }
   }
   return (
     <div {...params}>
-      { label ? <div className={`label-${label}`} /> : '' }
+      { label ? <div style={label === 'solid' ? { top: labelOffset } : {}} className={`label-${label}`} /> : '' }
     </div>
   );
 };
@@ -95,6 +102,14 @@ const Conveyor = () =>
 
       <div className="arm" />
 
+      <Cluster stacksCount={3} boxesRange={{ min: 2, max: 4 }} />
+      {' '}
+      <Cluster stacksCount={2} boxesRange={{ min: 2, max: 3 }} />
+      {' '}
+      <Cluster stacksCount={3} boxesRange={{ min: 1, max: 4 }} />
+      {' '}
+      <Cluster stacksCount={2} boxesRange={{ min: 2, max: 3 }} />
+      {' '}
       <Cluster stacksCount={3} boxesRange={{ min: 2, max: 4 }} />
       {' '}
       <Cluster stacksCount={2} boxesRange={{ min: 2, max: 3 }} />
