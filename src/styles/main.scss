@@ -53,7 +53,7 @@ body {
 .packs-view-container {
   position: relative;
 
-  background: $lighter-grey;
+  background: $light-grey;
 
   box-shadow: 0 -1px 2px 0 rgba(0, 0, 0, .15);
 }
@@ -417,7 +417,7 @@ footer {
   .fa-search {
     position: absolute;
     top: 27px;
-    left: 24px;
+    left: 20px;
 
     color: rgba(0, 0, 0, .15);
 
@@ -430,14 +430,14 @@ footer {
 
     font-size: .9rem;
 
-    border-color: #eee;
+    border-color: darken($light-grey, 15);
 
     &:focus {
-      border-color: darken(#eee, 15);
+      border-color: darken($light-grey, 30);
     }
 
     &:focus + .fa-search {
-      color: rgba(0, 0, 0, .45);
+      color: darken($light-grey, 30);
     }
   }
 }
@@ -446,7 +446,7 @@ footer {
   padding: 15px 0;
 
   .search-block {
-    padding: 15px;
+    padding: 15px 11px;
   }
 
   .btn-group {
