@@ -1,0 +1,289 @@
+@charset 'utf-8';
+
+@function dot-spaced($radius, $spacing) {
+  @return url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="#{$radius*2 + $spacing}" height="#{$radius*2}"><circle cx="#{$radius}" cy="#{$radius}" r="#{$radius}" fill="white" /></svg>');
+}
+
+$conveyor: $white;
+$conveyor-border: 3px solid $conveyor;
+$belt-height: 30px;
+
+@mixin logo-rotate {
+  &-logo-rot-1 {
+    &::after {
+      transform: rotate(1deg);
+    }
+  }
+
+  &-logo-rot-2 {
+    &::after {
+      transform: rotate(-1deg);
+    }
+  }
+
+  &-logo-rot-3 {
+    &::after {
+      content: '';
+      transform: rotate(5deg);
+    }
+  }
+
+  &-logo-rot-4 {
+    &::after {
+      transform: rotate(-3deg);
+    }
+  }
+}
+
+@mixin logo-scale {
+  &-logo-scale-1 {
+    &::after {
+      transform: scale(.95);
+    }
+  }
+
+  &-logo-scale-2 {
+    &::after {
+      transform: scale(.9);
+    }
+  }
+
+  &-logo-scale-3 {
+    &::after {
+      content: '';
+      transform: scale(1.05);
+    }
+  }
+
+  &-logo-scale-4 {
+    &::after {
+      transform: scale(1.1);
+    }
+  }
+}
+
+@mixin logo-drag {
+  &-logo-drag-1 {
+    &::after {
+      margin-top: -1px;
+      margin-left: 0;
+    }
+  }
+
+  &-logo-drag-2 {
+    &::after {
+      margin-top: -1px;
+      margin-left: -1px;
+    }
+  }
+
+  &-logo-drag-3 {
+    &::after {
+      margin-top: 0;
+      margin-left: -1px;
+    }
+  }
+}
+
+@mixin tape-size {
+  &.box-tape-size-1 {
+    &::before {
+      height: 5%;
+    }
+  }
+
+  &.box-tape-size-2 {
+    &::before {
+      height: 12%;
+    }
+  }
+
+  &.box-tape-size-3 {
+    &::before {
+      height: 15%;
+    }
+  }
+}
+
+.conveyor {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+
+  padding: 0 90px $belt-height;
+  overflow: hidden;
+
+  text-align: justify;
+  vertical-align: bottom;
+
+  opacity: .4;
+
+  .belt {
+    position: absolute;
+    right: 60px;
+    bottom: 30px;
+    left: -200px;
+
+    height: $belt-height;
+
+    border: $conveyor-border;
+    border-style: solid;
+    border-radius: 15px;
+
+    &::before {
+      position: absolute;
+      right: 10px;
+      bottom: 9px;
+
+      width: 100%;
+      height: 6px;
+
+      background: dot-spaced(3px, 30px) right 2px center repeat-x;
+      border-radius: 3px;
+
+      content: '';
+    }
+  }
+
+  .box {
+    @include logo-rotate;
+    @include logo-scale;
+    @include logo-drag;
+    @include tape-size;
+
+    position: relative;
+
+    width: 100%;
+    padding-bottom: 75%;
+
+    border: $conveyor-border;
+
+    &.unicorn {
+      background: url('/assets/images/unicorn.png') no-repeat bottom;
+      background-size: contain;
+
+      & > * {
+        display: none;
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+
+    // Tape
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 50%;
+
+      width: 25%;
+      height: 9%;
+      margin-left: -12.5%;
+
+      background: $conveyor;
+      border-radius: 0 0 10% 10%;
+
+      content: '';
+    }
+
+    &::after {
+      position: absolute;
+      right: 8%;
+      bottom: 10%;
+
+      padding-bottom: 35%;
+      padding-left: 35%;
+
+      background: url('/assets/images/st2-wide-mask.png') no-repeat center center;
+      background-size: 100% 100%;
+      border-radius: 7%;
+
+      content: '';
+    }
+
+    & > [class|='label'] {
+      position: absolute;
+      left: 9%;
+
+      width: 30%;
+
+      background: $conveyor;
+      border-radius: 10%;
+
+      content: '';
+
+      &.label-solid {
+        top: 30%;
+
+        padding-bottom: 25%;
+      }
+
+      &.label-up {
+        bottom: 8%;
+
+        height: 5%;
+
+        &::before,
+        &::after {
+          position: absolute;
+          bottom: 70%;
+          display: block;
+
+          font-size: 15%;
+          line-height: 1;
+          color: $conveyor;
+
+          content: '⬆';
+        }
+
+        &::before {
+          left: 1%;
+        }
+
+        &::after {
+          right: 1%;
+        }
+      }
+    }
+  }
+
+  .cluster {
+    position: relative;
+    right: 30px;
+    display: inline-block;
+
+    height: calc(100% - #{$belt-height});
+    padding-bottom: 6px;
+    margin: 0 30px;
+
+    text-align: justify;
+    vertical-align: bottom;
+
+    &::after {
+      display: inline-block;
+
+      height: 100%;
+
+      content: '';
+    }
+  }
+
+  .stack {
+    display: inline-block;
+
+    padding: 0;
+    margin: 0 15px;
+
+    vertical-align: bottom;
+
+    list-style-type: none;
+
+    & > .box {
+      margin: 0 auto -3px;
+    }
+  }
+}

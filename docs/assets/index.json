@@ -1,0 +1,586 @@
+{
+    "metadata": {
+        "generated_ts": 1478250611,
+        "hash": "2e455648d3f52177fa5a098ba89e97b2"
+    },
+    "packs": {
+        "aws": {
+            "author": "st2-dev",
+            "content": {
+                "actions": {
+                    "count": 637
+                },
+                "sensors": {
+                    "count": 2
+                }
+            },
+            "description": "st2 content pack containing Amazon Web Services integrations.",
+            "email": "info@stackstorm.com",
+            "keywords": [
+                "aws",
+                "amazon web services",
+                "amazon",
+                "ec2",
+                "sqs",
+                "sns",
+                "route53",
+                "cloud",
+                "iam",
+                "vpc",
+                "s3",
+                "CloudFormation",
+                "RDS",
+                "SQS"
+            ],
+            "name": "aws",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-aws",
+            "version": "0.6.5"
+        },
+        "cloudflare": {
+            "author": "Jon Middleton",
+            "description": "A pack to interact with the Cloudflare service.",
+            "email": "jon.middleton@pulsant.com",
+            "keywords": [
+                "cloudflare"
+            ],
+            "name": "cloudflare",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-cloudflare",
+            "version": "0.3"
+        },
+        "consul": {
+            "author": "jfryman",
+            "description": "consul",
+            "email": "james@fryman.io",
+            "name": "consul",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-consul",
+            "version": "0.0.1"
+        },
+        "datadog": {
+            "author": "Lisa Bekdache",
+            "content": {
+                "actions": {
+                    "count": 51
+                }
+            },
+            "description": "datadog",
+            "email": "lisa.bekdache@dailymotion.com",
+            "keywords": [
+                "monitoring",
+                "alerting",
+                "saas"
+            ],
+            "name": "datadog",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-datadog",
+            "version": "0.0.2"
+        },
+        "device42": {
+            "author": "Device42 Inc.",
+            "content": {
+                "actions": {
+                    "count": 1
+                },
+                "aliases": {
+                    "count": 1
+                },
+                "sensors": {
+                    "count": 1
+                },
+                "rules": {
+                    "count": 1
+                },
+                "runners": {
+                    "count": 1
+                },
+                "triggers": {
+                    "count": 1
+                },
+                "policies": {
+                    "count": 1
+                }
+            },
+            "description": "Device42 Actions for StackStorm",
+            "email": "support@device42.com",
+            "name": "device42",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-device42",
+            "version": "0.1.0"
+        },
+        "dripstat": {
+            "author": "James Fryman",
+            "description": "Integration with the Dripstat Application Performance Monitoring tool",
+            "email": "james@fryman.io",
+            "keywords": [
+                "dripstat",
+                "java",
+                "monitoring",
+                "performance monitoring"
+            ],
+            "name": "dripstat",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-dripstat",
+            "version": "0.0.1"
+        },
+        "duo": {
+            "author": "Jon Middleton",
+            "content": {
+                "actions": {
+                    "count": 6
+                },
+                "aliases": {
+                    "count": 4
+                },
+                "tests": {
+                    "count": 4
+                }
+            },
+            "description": "Use Duo 2FA authenication with StackStorm actions.",
+            "email": "jon.middleton@pulsant.com",
+            "keywords": [
+                "2Fa",
+                "Duo"
+            ],
+            "name": "duo",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-duo",
+            "version": "0.3.0"
+        },
+        "elasticsearch": {
+            "author": "st2-dev",
+            "description": "st2 elasticsearch integration pack",
+            "email": "info@stackstorm.com",
+            "keywords": [
+                "elasticsearch",
+                "curator",
+                "databases"
+            ],
+            "name": "elasticsearch",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-elasticsearch",
+            "version": "0.3.0"
+        },
+        "email": {
+            "author": "James Fryman",
+            "description": "E-Mail Actions/Sensors for StackStorm",
+            "email": "james@stackstorm.com",
+            "name": "email",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-email",
+            "version": "0.1.0"
+        },
+        "fireeye": {
+            "author": "James Fryman",
+            "description": "FireEye CM Series Integration",
+            "email": "james@stackstorm.com",
+            "name": "fireeye",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-fireeye",
+            "version": "0.1.0"
+        },
+        "fpm": {
+            "author": "jfryman",
+            "description": "fpm",
+            "email": "jfryman@FryBook-2.local",
+            "name": "fpm",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-fpm",
+            "version": "0.0.1"
+        },
+        "freight": {
+            "author": "James Fryman",
+            "description": "freight",
+            "email": "james@fryman.io",
+            "name": "freight",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-freight",
+            "version": "0.0.1"
+        },
+        "github": {
+            "author": "st2-dev",
+            "description": "st2 content pack containing github integrations",
+            "email": "info@stackstorm.com",
+            "keywords": [
+                "github",
+                "git",
+                "scm"
+            ],
+            "name": "github",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-github",
+            "version": 0.4
+        },
+        "google": {
+            "author": "st2-dev",
+            "description": "st2 content pack containing google integrations",
+            "email": "info@stackstorm.com",
+            "keywords": [
+                "google",
+                "search"
+            ],
+            "name": "google",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-google",
+            "version": "0.1.1"
+        },
+        "hpe-icsp": {
+            "author": "Paul Mulvihill",
+            "description": "Pack for HP Enterprise Insight Control Server Provisioning Integration",
+            "email": "paul.mulvihill@pulsant.com",
+            "name": "hpe-icsp",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-hpe-icsp",
+            "version": "0.3.1"
+        },
+        "hubot": {
+            "author": "James Fryman",
+            "description": "Hubot integration pack",
+            "email": "james@stackstorm.com",
+            "name": "hubot",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-hubot",
+            "version": "0.1.0"
+        },
+        "hue": {
+            "author": "James Fryman",
+            "description": "Philips Hue Pack",
+            "email": "james@stackstorm.com",
+            "keywords": [
+                "hue",
+                "philips",
+                "iot"
+            ],
+            "name": "hue",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-hue",
+            "version": "0.0.2"
+        },
+        "icinga2": {
+            "author": "Igor Cherkaev",
+            "description": "Icinga2 Integration pack",
+            "email": "emptywee@protonmail.ch",
+            "name": "icinga2",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-icinga2",
+            "version": "0.2.0"
+        },
+        "jenkins": {
+            "author": "James Fryman",
+            "description": "Jenkins CI Integration Pack",
+            "email": "james@stackstorm.com",
+            "name": "jenkins",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-jenkins",
+            "version": "0.1.0"
+        },
+        "jira": {
+            "author": "st2-dev",
+            "description": "st2 content pack containing jira integrations",
+            "email": "info@stackstorm.com",
+            "keywords": [
+                "issues",
+                "ticket management",
+                "project management"
+            ],
+            "name": "jira",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-jira",
+            "version": 0.3
+        },
+        "lastline": {
+            "author": "James Fryman",
+            "description": "Lastline Security Breach Detection Integration",
+            "email": "james@stackstorm.com",
+            "name": "lastline",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-lastline",
+            "version": "0.1.0"
+        },
+        "librato": {
+            "author": "James Fryman",
+            "description": "Send and manage metrics with Librato",
+            "email": "james@fryman.io",
+            "name": "librato",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-librato",
+            "version": "0.0.1"
+        },
+        "mistral": {
+            "author": "StackStorm",
+            "description": "Mistral integrations to operate mistral.",
+            "email": "support@stackstorm.com",
+            "keywords": [
+                "mistral",
+                "workflows"
+            ],
+            "name": "mistral",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-mistral",
+            "version": "0.0.1"
+        },
+        "mqtt": {
+            "author": "James Fryman",
+            "content": {
+                "actions": {
+                    "count": 1
+                },
+                "sensors": {
+                    "count": 1
+                }
+            },
+            "description": "MQTT Integration for StackStorm",
+            "email": "james@stackstorm.com",
+            "name": "mqtt",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-mqtt",
+            "version": "0.1.0"
+        },
+        "mssql": {
+            "author": "codyaray",
+            "description": "st2 content pack containing Microsoft SQL Server integrations",
+            "email": "talktome@codyaray.com",
+            "keywords": [
+                "mssql",
+                "sql",
+                "microsoft",
+                "sql server"
+            ],
+            "name": "mssql",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-mssql",
+            "version": "0.1.0"
+        },
+        "nest": {
+            "author": "James Fryman",
+            "content": {
+                "actions": {
+                    "count": 11
+                }
+            },
+            "description": "StackStorm integration with Nest Thermostats",
+            "email": "james@stackstorm.com",
+            "name": "nest",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-nest",
+            "version": "0.0.1"
+        },
+        "openhab": {
+            "author": "James Fryman",
+            "description": "Integration with OpenHAB",
+            "email": "james@stackstorm.com",
+            "keywords": [
+                "openhab",
+                "iot",
+                "smart home",
+                "home automation"
+            ],
+            "name": "openhab",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-openhab",
+            "version": "0.1.0"
+        },
+        "orion": {
+            "author": "Jon Middleton",
+            "description": "Intergrate via the OrionSDK to SolarWinds Orion",
+            "email": "jon.middleton@pulsant.com",
+            "keywords": [
+                "solarwinds",
+                "orion",
+                "ncm",
+                "npm"
+            ],
+            "name": "orion",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-orion",
+            "version": "0.5.0"
+        },
+        "packer": {
+            "author": "James Fryman",
+            "description": "Hashicorp Packer builder integration",
+            "email": "james@stackstorm.com",
+            "keywords": [
+                "packer",
+                "provisioning",
+                "pipeline",
+                "hashicorp"
+            ],
+            "name": "packer",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-packer",
+            "version": "0.1.0"
+        },
+        "pagerduty": {
+            "author": "Aamir",
+            "description": "Packs which allows integration with PagerDuty services.",
+            "email": "raza.aamir01@gmail.com",
+            "name": "pagerduty",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-pagerduty",
+            "version": "0.1.0"
+        },
+        "powerpoint": {
+            "author": "Anthony Shaw",
+            "content": {
+                "actions": {
+                    "count": 1
+                }
+            },
+            "description": "The bestest pack on Earth!!111!1",
+            "email": "anthonyshaw@apache.org",
+            "name": "powerpoint",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-powerpoint",
+            "version": "0.2.12"
+        },
+        "rackspace": {
+            "author": "jfryman",
+            "description": "Packs which allows integration with Rackspace services such as servers, load balancers and DNS.",
+            "email": "james@stackstorm.com",
+            "name": "rackspace",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-rackspace",
+            "version": "0.1.0"
+        },
+        "reamaze": {
+            "author": "James Fryman",
+            "description": "reamaze Integration Pack",
+            "email": "james@stackstorm.com",
+            "name": "reamaze",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-reamaze",
+            "version": "0.1.1"
+        },
+        "salt": {
+            "author": "jcockhren",
+            "description": "st2 salt integration pack",
+            "email": "jurnell@sophicware.com",
+            "keywords": [
+                "salt",
+                "cfg management",
+                "configuration management"
+            ],
+            "name": "salt",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-salt",
+            "version": "0.4.4"
+        },
+        "sensu": {
+            "author": "st2-dev",
+            "description": "st2 content pack containing sensu integrations",
+            "email": "info@stackstorm.com",
+            "keywords": [
+                "sensu",
+                "monitoring",
+                "alerting"
+            ],
+            "name": "sensu",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-sensu",
+            "version": "0.1.0"
+        },
+        "servicenow": {
+            "author": "James Fryman",
+            "description": "ServiceNow Integration Pack",
+            "email": "james@stackstorm.com",
+            "name": "servicenow",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-servicenow",
+            "version": "0.2.0"
+        },
+        "slack": {
+            "author": "st2-dev",
+            "description": "st2 content pack containing slack integrations",
+            "email": "info@stackstorm.com",
+            "keywords": [
+                "slack",
+                "chat",
+                "messaging",
+                "instant messaging"
+            ],
+            "name": "slack",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-slack",
+            "version": "0.2.1"
+        },
+        "st2": {
+            "author": "st2-dev",
+            "description": "StackStorm pack management",
+            "email": "info@stackstorm.com",
+            "name": "st2",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-st2",
+            "version": "0.1.2"
+        },
+        "tesla": {
+            "author": "Anthony Shaw",
+            "description": "car horn automation",
+            "email": "anthony.shaw@dimensiondata.com",
+            "keywords": [
+                "tesla"
+            ],
+            "name": "tesla",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-tesla",
+            "version": "0.2.0"
+        },
+        "test": {
+            "author": "st2-dev",
+            "description": "st2 pack to test package management pipeline",
+            "email": "info@stackstorm.com",
+            "keywords": [
+                "some",
+                "search",
+                "another",
+                "terms"
+            ],
+            "name": "test",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-test",
+            "version": "0.4"
+        },
+        "trello": {
+            "author": "James Fryman",
+            "description": "Integration with Trello, Web based Project Management",
+            "email": "james@stackstorm.com",
+            "keywords": [
+                "trello",
+                "kanban",
+                "productivity",
+                "collaboration"
+            ],
+            "name": "trello",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-trello",
+            "version": "0.2.0"
+        },
+        "vault": {
+            "author": "steve.neuharth",
+            "description": "vault",
+            "email": "steve.neuharth@target.com",
+            "name": "vault",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-vault",
+            "version": "0.0.1"
+        },
+        "vdx": {
+            "author": "st2-dev",
+            "content": {
+                "actions": {
+                    "count": 55
+                },
+                "tests": {
+                    "count": 52
+                }
+            },
+            "description": "Brocade VDX integration pack.",
+            "email": "info@stackstorm.com",
+            "name": "vdx",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-vdx",
+            "version": "0.0.1"
+        },
+        "victorops": {
+            "author": "Aamir",
+            "description": "Packs which allows integration with Victorops events.",
+            "email": "raza.aamir01@gmail.com",
+            "keywords": [
+                "victorps integration",
+                "open, ack and resolve incidents"
+            ],
+            "name": "victorops",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-victorops",
+            "version": "0.1.0"
+        },
+        "vsphere": {
+            "author": "Paul Mulvihill",
+            "content": {
+                "actions": {
+                    "count": 21
+                },
+                "tests": {
+                    "count": 12
+                }
+            },
+            "description": "st2 content pack containing vsphere integrations.",
+            "email": "paul.mulvihill@pulsant.com",
+            "name": "vsphere",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-vsphere",
+            "version": "0.4.3"
+        },
+        "witai": {
+            "author": "James Fryman",
+            "description": "Wit AI Integration with StackStorm",
+            "email": "james@stackstorm.com",
+            "name": "witai",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-witai",
+            "version": "0.1.0"
+        },
+        "zookeeper": {
+            "author": "Cody A. Ray",
+            "description": "st2 integration pack with zookeeper",
+            "email": "talktome@codyaray.com",
+            "name": "zookeeper",
+            "repo_url": "https://github.com/StackStorm-Exchange/stackstorm-zookeeper",
+            "version": "0.1.0"
+        }
+    }
+}

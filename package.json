@@ -1,0 +1,56 @@
+{
+  "name": "exchange-web",
+  "version": "1.0.0",
+  "description": "StackStorm Exchange Web Front-end",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server -w --content-base docs/",
+    "build": "NODE_ENV=production webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StackStorm-Exchange/web.git"
+  },
+  "author": "Edward Medvedev",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/StackStorm-Exchange/web/issues"
+  },
+  "homepage": "https://github.com/StackStorm-Exchange/web#readme",
+  "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "css-loader": "^0.25.0",
+    "eslint": "^3.8.1",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.4.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "imports-loader": "^0.6.5",
+    "json-loader": "^0.5.4",
+    "less-loader": "^2.2.3",
+    "node-sass": "^3.10.1",
+    "resolve-url-loader": "^1.6.0",
+    "sass-loader": "^4.0.2",
+    "sass-resources-loader": "^1.1.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.5",
+    "bootstrap-loader": "^2.0.0-beta.12",
+    "font-awesome": "^4.7.0",
+    "font-awesome-loader": "^1.0.0",
+    "jquery": "^3.1.1",
+    "masonry-layout": "^4.1.1",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-popup": "^0.4.2"
+  }
+}
