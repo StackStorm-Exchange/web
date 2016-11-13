@@ -77,7 +77,25 @@
             "author": "Device42 Inc.",
             "content": {
                 "actions": {
-                    "count": 2
+                    "count": 1
+                },
+                "aliases": {
+                    "count": 1
+                },
+                "sensors": {
+                    "count": 1
+                },
+                "rules": {
+                    "count": 1
+                },
+                "runners": {
+                    "count": 1
+                },
+                "triggers": {
+                    "count": 1
+                },
+                "policies": {
+                    "count": 1
                 }
             },
             "description": "Device42 Actions for StackStorm",
