@@ -37,5 +37,5 @@ export const SubmitButton = () => {
     type="button"
     className="pack-submit btn btn-primary"
     onClick={() => { Popup.queue(popup); }}
-  >Add your pack!</button>);
+  >Submit a pack</button>);
 };

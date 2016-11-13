@@ -14,10 +14,10 @@ const Pack = React.createClass({
             {this.props.name}
           </h4>
           <a
-            className="btn btn-sm btn-outline-secondary" href={this.props.repo_url}
+            className="btn btn-sm btn-github" href={this.props.repo_url}
             rel="noopener noreferrer" target="_blank"
           ><i className="fa fa-github" /></a>
-          <div className="btn btn-sm btn-outline-primary"><i className="fa fa-download" /></div>
+          <a rel="button" tabIndex="-1" className="btn btn-sm"><i className="fa fa-download" /></a>
         </div>
         <div className="card-block description">
           {this.props.children}

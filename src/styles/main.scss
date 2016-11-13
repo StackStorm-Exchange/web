@@ -29,6 +29,10 @@ body {
 
     cursor: pointer;
     background-color: $tag-background;
+
+    &:hover {
+      background-color: darken($tag-background, 10);
+    }
   }
 }
 
@@ -51,7 +55,7 @@ body {
 
   background: $lighter-grey;
 
-  box-shadow: 0 -1px 2px 0 rgba(0, 0, 0, .3);
+  box-shadow: 0 -1px 2px 0 rgba(0, 0, 0, .15);
 }
 
 @media (min-width: 655px) {
@@ -82,8 +86,9 @@ body {
 }
 
 .pack {
-  border: 1px solid $borders;
+  border: 0;
 
+  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, .1);
   box-sizing: border-box;
 
   //  box-shadow: 1px 1px 1px 0px #eee;
@@ -132,17 +137,26 @@ body {
 
       font-size: 16px;
       line-height: 26px;
+      color: $links;
 
+      border: 1px solid transparentize($links, .85);
+
+      box-shadow: inset -1px -1px 1px 0 transparentize($links, .9);
       box-sizing: content-box;
 
-      &.btn-outline-secondary {
+      &:hover {
+        color: darken($links, 10);
+
+        border: 1px solid transparentize($links, .7);
+
+        box-shadow: inset -1px -1px 1px 0 transparentize($links, .8);
+      }
+
+      &.btn-github {
         right: 60px;
 
         line-height: 24px;
-        color: $github-button;
-
-        border-color: inherit;
-      }
+      };
     }
 
     h4 {
@@ -277,6 +291,8 @@ body {
   background: $stackstorm-orange;
 
   .content {
+    text-shadow: 1px 1px rgba(0, 0, 0, .15);
+
     background: rgba($stackstorm-orange, .7);
     border-radius: 10px;
   }
@@ -400,7 +416,7 @@ footer {
 
   .fa-search {
     position: absolute;
-    top: 21px;
+    top: 27px;
     left: 24px;
 
     color: rgba(0, 0, 0, .15);
@@ -410,8 +426,15 @@ footer {
 
   .form-control {
     padding: .35rem .75rem .35rem 30px;
+    margin-top: 6px;
 
     font-size: .9rem;
+
+    border-color: #eee;
+
+    &:focus {
+      border-color: darken(#eee, 15);
+    }
 
     &:focus + .fa-search {
       color: rgba(0, 0, 0, .45);
@@ -427,11 +450,35 @@ footer {
   }
 
   .btn-group {
-    .btn {
-      padding: .45rem 1rem;
+    border: 0;
 
-      font-size: .9rem;
+    .btn {
+      padding: 10px 10px;
+      margin-top: 5px;
+      margin-left: 10px;
+
+      font-size: 13px;
       line-height: 1;
+      color: $blackish-grey;
+
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+
+      &:hover {
+        color: $bold;
+      }
+
+      &.active {
+        font-weight: 500;
+        color: $links;
+
+        border-bottom: 3px solid $links;
+
+        &:hover {
+          color: $links;
+        }
+      }
     }
   }
 
@@ -452,7 +499,7 @@ footer {
 
   background: $white;
 
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .3);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .15);
 
   img {
     display: block;
@@ -475,34 +522,44 @@ footer {
     float: left;
 
     margin-top: 12px;
-    margin-left: 15px;
+    margin-left: 20px;
   }
 
   .btn {
+    padding-bottom: 9px;
+
     font-size: 14px;
     font-weight: 300;
-    color: $blackish-grey;
+    color: lighten($blackish-grey, 15);
 
     background: none;
-    border: 1px solid transparent;
+    border: 1px solid rgba(0, 0, 0, .1);
+
+    box-shadow: inset -1px -1px 2px 0 rgba(0, 0, 0, .05);
 
     &:hover {
       color: $bold;
 
-      background: none;
+      border: 1px solid rgba(0, 0, 0, .2);
+
+      box-shadow: inset -1px -1px 2px 0 rgba(0, 0, 0, .1);
     }
 
     &.pack-submit {
-      color: $stackstorm-orange;
+      font-weight: 400;
+      color: lighten($stackstorm-orange, 5);
 
-      border: 1px solid $stackstorm-orange;
+      border: 1px solid rgba(245, 130, 33, .25);
 
+      box-shadow: inset -1px -1px 2px 0 rgba(245, 130, 33, .1);
       transition: .1s;
 
       &:hover {
-        color: $white;
+        color: darken($stackstorm-orange, 5);
 
-        background: lighten($stackstorm-orange, 0);
+        border: 1px solid rgba(245, 130, 33, .5);
+
+        box-shadow: inset -1px -1px 2px 0 rgba(245, 130, 33, .2);
       }
     }
   }
