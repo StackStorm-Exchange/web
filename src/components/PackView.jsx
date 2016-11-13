@@ -158,7 +158,7 @@ const PackView = React.createClass({
   componentDidMount() {
     const loadHash = this.loadHash;
     $.ajax({
-      url: 'assets/index.json',
+      url: 'https://index.stackstorm.org/v1/index.json',
       dataType: 'json',
       cache: false,
       success: function (data) {

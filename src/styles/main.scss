@@ -532,10 +532,14 @@ footer {
     font-weight: 300;
     color: lighten($blackish-grey, 15);
 
-    background: none;
+    background: $white;
     border: 1px solid rgba(0, 0, 0, .1);
 
     box-shadow: inset -1px -1px 2px 0 rgba(0, 0, 0, .05);
+
+    &:active {
+      background: $white;
+    }
 
     &:hover {
       color: $bold;

@@ -1,10 +1,10 @@
-var webpack = require('webpack');
-var path = require('path');
+const webpack = require('webpack');
+const path = require('path');
 
-var BUILD_DIR = path.resolve(__dirname, 'docs');
-var APP_DIR = path.resolve(__dirname, 'src');
+const BUILD_DIR = path.resolve(__dirname, 'docs');
+const APP_DIR = path.resolve(__dirname, 'src');
 
-var config = {
+const config = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.scss'],
     root: [
@@ -12,7 +12,7 @@ var config = {
     ],
   },
 
-  entry: APP_DIR + '/index.jsx',
+  entry: `${APP_DIR}/index.jsx`,
   output: {
     path: BUILD_DIR,
     filename: 'assets/bundle.js',
@@ -73,7 +73,7 @@ var config = {
       Util: 'exports?Util!bootstrap/js/dist/util',
     }),
     new webpack.optimize.DedupePlugin(),
-    // new webpack.optimize.UglifyJsPlugin()
+    // new webpack.optimize.UglifyJsPlugin(),
   ],
 
   sassResources: './src/styles/shared.scss',
