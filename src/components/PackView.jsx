@@ -34,7 +34,6 @@ const Pack = React.createClass({
             <div className="author">{this.props.author}</div>
           </div>
         </div>
-        <PackContent content={this.props.content} />
         <div className="card-block install">
           <h5>Install {this.props.name}</h5>
           <div>
@@ -100,6 +99,7 @@ const PackIcon = React.createClass({
   },
 });
 
+// TODO: Remove if not in use
 const PackContent = React.createClass({
   render() {
     const content = this.props.content;
