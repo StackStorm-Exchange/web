@@ -1,7 +1,7 @@
 import Masonry from 'masonry-layout';
 import React from 'react';
 
-import type_packs from 'components/PackType';
+import type_packs from './PackType';
 import categories from './categories.json';
 
 const Pack = React.createClass({

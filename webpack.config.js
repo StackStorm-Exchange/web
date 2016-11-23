@@ -6,10 +6,7 @@ const APP_DIR = path.resolve(__dirname, 'src');
 
 const config = {
   resolve: {
-    extensions: ['', '.js', '.jsx', '.scss'],
-    root: [
-      APP_DIR,
-    ],
+    extensions: ['.js', '.jsx', '.scss'],
   },
 
   entry: `${APP_DIR}/index.jsx`,
@@ -22,7 +19,7 @@ const config = {
       {
         test: /\.jsx?/,
         include: APP_DIR,
-        loader: 'babel',
+        loader: 'babel-loader',
         query: {
           presets: ['react', 'es2015'],
         },
@@ -31,27 +28,36 @@ const config = {
         test: /\.s?css$/,
         include: APP_DIR,
         loaders: [
-          'style',
-          'css',
-          'sass',
-          'sass-resources',
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+          'sass-resources-loader',
         ],
       },
       { test: /\.png$/, loader: 'url-loader?limit=100000' },
       { test: /\.jpg$/, loader: 'file-loader' },
-      { test: /\.json$/, loader: 'json' },
+      { test: /\.json$/, loader: 'json-loader' },
       {
         test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url',
+        loader: 'url-loader',
       },
       {
         test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
-        loader: 'file',
+        loader: 'file-loader',
       },
     ],
   },
 
   plugins: [
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        output: {
+          path: BUILD_DIR
+        },
+        sassResources: ['./src/styles/shared.scss'],
+        context: path.resolve(__dirname) // must evaluate to root of project
+      }
+    }),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
@@ -60,24 +66,20 @@ const config = {
 
       Tether: 'tether',
       'window.Tether': 'tether',
-      Alert: 'exports?Alert!bootstrap/js/dist/alert',
-      Button: 'exports?Button!bootstrap/js/dist/button',
-      Carousel: 'exports?Carousel!bootstrap/js/dist/carousel',
-      Collapse: 'exports?Collapse!bootstrap/js/dist/collapse',
-      Dropdown: 'exports?Dropdown!bootstrap/js/dist/dropdown',
-      Modal: 'exports?Modal!bootstrap/js/dist/modal',
-      Popover: 'exports?Popover!bootstrap/js/dist/popover',
-      Scrollspy: 'exports?Scrollspy!bootstrap/js/dist/scrollspy',
-      Tab: 'exports?Tab!bootstrap/js/dist/tab',
-      Tooltip: 'exports?Tooltip!bootstrap/js/dist/tooltip',
-      Util: 'exports?Util!bootstrap/js/dist/util',
+      Alert: 'exports-loader?Alert!bootstrap/js/dist/alert',
+      Button: 'exports-loader?Button!bootstrap/js/dist/button',
+      Carousel: 'exports-loader?Carousel!bootstrap/js/dist/carousel',
+      Collapse: 'exports-loader?Collapse!bootstrap/js/dist/collapse',
+      Dropdown: 'exports-loader?Dropdown!bootstrap/js/dist/dropdown',
+      Modal: 'exports-loader?Modal!bootstrap/js/dist/modal',
+      Popover: 'exports-loader?Popover!bootstrap/js/dist/popover',
+      Scrollspy: 'exports-loader?Scrollspy!bootstrap/js/dist/scrollspy',
+      Tab: 'exports-loader?Tab!bootstrap/js/dist/tab',
+      Tooltip: 'exports-loader?Tooltip!bootstrap/js/dist/tooltip',
+      Util: 'exports-loader?Util!bootstrap/js/dist/util',
     }),
-    new webpack.optimize.DedupePlugin(),
     // new webpack.optimize.UglifyJsPlugin(),
-  ],
-
-  sassResources: './src/styles/shared.scss',
+  ]
 };
 
 module.exports = config;
-
