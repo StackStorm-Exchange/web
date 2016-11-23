@@ -1,6 +1,8 @@
 const webpack = require('webpack');
 const path = require('path');
 
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 const BUILD_DIR = path.resolve(__dirname, 'docs');
 const APP_DIR = path.resolve(__dirname, 'src');
 
@@ -27,12 +29,10 @@ const config = {
       {
         test: /\.s?css$/,
         include: APP_DIR,
-        loaders: [
-          'style-loader',
-          'css-loader',
-          'sass-loader',
-          'sass-resources-loader',
-        ],
+        loaders: ExtractTextPlugin.extract({
+            fallbackLoader: "style-loader",
+            loader: "css-loader!sass-loader!sass-resources-loader"
+        })
       },
       { test: /\.png$/, loader: 'url-loader?limit=100000' },
       { test: /\.jpg$/, loader: 'file-loader' },
@@ -78,6 +78,7 @@ const config = {
       Tooltip: 'exports-loader?Tooltip!bootstrap/js/dist/tooltip',
       Util: 'exports-loader?Util!bootstrap/js/dist/util',
     }),
+    new ExtractTextPlugin({filename: "assets/styles.css", allChunks: true})
     // new webpack.optimize.UglifyJsPlugin(),
   ]
 };
