@@ -1,4 +1,4 @@
-import 'components/vendor/typed';
+import './vendor/typed';
 
 const type_packs = (packs) => {
   const packNames = packs.map(pack => pack.name);
