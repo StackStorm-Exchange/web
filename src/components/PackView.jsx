@@ -162,7 +162,13 @@ const PackView = React.createClass({
       dataType: 'json',
       cache: false,
       success: function (data) {
-        const packs = Object.keys(data.packs).map(key => data.packs[key]);
+        const packs = Object.keys(data.packs).map(key => data.packs[key]).sort((a, b) => {
+          const ln = a.name.toLowerCase();
+          const rn = b.name.toLowerCase();
+          if (ln < rn) { return -1; }
+          if (ln > rn) { return 1; }
+          return 0;
+        });
         this.setState({ packs });
         type_packs(packs);
       }.bind(this),
