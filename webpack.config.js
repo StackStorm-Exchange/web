@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const BUILD_DIR = path.resolve(__dirname, 'docs');
 const APP_DIR = path.resolve(__dirname, 'src');
@@ -20,7 +20,6 @@ const config = {
     loaders: [
       {
         test: /\.jsx?/,
-        include: APP_DIR,
         loader: 'babel-loader',
         query: {
           presets: ['react', 'es2015'],
@@ -28,11 +27,10 @@ const config = {
       },
       {
         test: /\.s?css$/,
-        include: APP_DIR,
         loaders: ExtractTextPlugin.extract({
-            fallbackLoader: "style-loader",
-            loader: "css-loader!sass-loader!sass-resources-loader"
-        })
+          fallbackLoader: 'style-loader',
+          loader: 'css-loader!sass-loader!sass-resources-loader',
+        }),
       },
       { test: /\.png$/, loader: 'url-loader?limit=100000' },
       { test: /\.jpg$/, loader: 'file-loader' },
@@ -52,11 +50,11 @@ const config = {
     new webpack.LoaderOptionsPlugin({
       options: {
         output: {
-          path: BUILD_DIR
+          path: BUILD_DIR,
         },
         sassResources: ['./src/styles/shared.scss'],
-        context: path.resolve(__dirname) // must evaluate to root of project
-      }
+        context: path.resolve(__dirname), // must evaluate to root of project
+      },
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',
@@ -78,9 +76,9 @@ const config = {
       Tooltip: 'exports-loader?Tooltip!bootstrap/js/dist/tooltip',
       Util: 'exports-loader?Util!bootstrap/js/dist/util',
     }),
-    new ExtractTextPlugin({filename: "assets/styles.css", allChunks: true})
-    // new webpack.optimize.UglifyJsPlugin(),
-  ]
+    new ExtractTextPlugin({ filename: 'assets/styles.css', allChunks: true }),
+    new webpack.optimize.UglifyJsPlugin(),
+  ],
 };
 
 module.exports = config;

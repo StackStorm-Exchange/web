@@ -53,9 +53,9 @@ body {
 .packs-view-container {
   position: relative;
 
-  background: $lighter-grey;
+  background: #f5f5f5;
 
-  box-shadow: 0 -1px 2px 0 rgba(0, 0, 0, .15);
+  box-shadow: 0 -1px 0 1px rgba(0, 0, 0, .15);
 }
 
 @media (min-width: 655px) {
@@ -88,7 +88,8 @@ body {
 .pack {
   border: 0;
 
-  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, .1);
+  box-shadow: 1px 1px 0 0 rgba(0, 0, 0, .1);
+  //box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, .1);
   box-sizing: border-box;
 
   //  box-shadow: 1px 1px 1px 0px #eee;
@@ -128,7 +129,7 @@ body {
 
     .btn {
       position: absolute;
-      top: 18px;
+      top: 16px;
       right: 20px;
 
       width: 30px;
@@ -137,19 +138,22 @@ body {
 
       font-size: 16px;
       line-height: 26px;
-      color: $links;
+      color: darken($links, 5);
 
-      border: 1px solid transparentize($links, .85);
+      border: 1px solid lighten($links, 40);
 
-      box-shadow: inset -1px -1px 1px 0 transparentize($links, .9);
+      box-shadow: 0 1px 0 0 lighten($links, 40);
       box-sizing: content-box;
+      transition: .1s;
 
       &:hover {
-        color: darken($links, 10);
+        color: darken($links, 15);
 
-        border: 1px solid transparentize($links, .7);
+        background: transparentize($links, .98);
+        border: 1px solid transparentize($links, .6);
 
-        box-shadow: inset -1px -1px 1px 0 transparentize($links, .8);
+        opacity: 1;
+        box-shadow: 0 1px 0 0 transparentize($links, .4);
       }
 
       &.btn-github {
@@ -304,6 +308,17 @@ body {
     font-size: 38px;
     font-weight: 300;
 
+    a {
+      color: inherit;
+
+      cursor: default;
+
+      &:hover,
+      &:active {
+        text-decoration: none;
+      }
+    }
+
     span {
       font-weight: 400;
     }
@@ -417,7 +432,7 @@ footer {
   .fa-search {
     position: absolute;
     top: 27px;
-    left: 24px;
+    left: 20px;
 
     color: rgba(0, 0, 0, .15);
 
@@ -430,14 +445,14 @@ footer {
 
     font-size: .9rem;
 
-    border-color: #eee;
+    border-color: darken($light-grey, 15);
 
     &:focus {
-      border-color: darken(#eee, 15);
+      border-color: darken($light-grey, 30);
     }
 
     &:focus + .fa-search {
-      color: rgba(0, 0, 0, .45);
+      color: darken($light-grey, 30);
     }
   }
 }
@@ -446,7 +461,7 @@ footer {
   padding: 15px 0;
 
   .search-block {
-    padding: 15px;
+    padding: 15px 11px;
   }
 
   .btn-group {
@@ -499,7 +514,7 @@ footer {
 
   background: $white;
 
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .15);
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, .15);
 
   img {
     display: block;
@@ -521,50 +536,80 @@ footer {
   li {
     float: left;
 
-    margin-top: 12px;
+    margin-top: 0;
     margin-left: 20px;
   }
 
   .btn {
-    padding-bottom: 9px;
+    height: 59px;
+    padding: 3px 5px 5px;
+    margin-top: 0;
 
     font-size: 14px;
     font-weight: 300;
+    line-height: 20px;
     color: lighten($blackish-grey, 15);
 
     background: $white;
-    border: 1px solid rgba(0, 0, 0, .1);
+    border: 0;
+    border-radius: 0;
 
-    box-shadow: inset -1px -1px 2px 0 rgba(0, 0, 0, .05);
+    outline: 0;
+    box-shadow: inset 0 3px 0 0  darken($white, 0);
+    transition: .2s;
 
+    &:hover,
     &:active {
+      color: black;
+
       background: $white;
-    }
+      border: 0;
 
-    &:hover {
-      color: $bold;
-
-      border: 1px solid rgba(0, 0, 0, .2);
-
-      box-shadow: inset -1px -1px 2px 0 rgba(0, 0, 0, .1);
+      outline: 0;
+      box-shadow: inset 0 3px 0 0 lighten($stackstorm-orange, 5);
+      box-shadow: 0;
     }
 
     &.pack-submit {
-      font-weight: 400;
-      color: lighten($stackstorm-orange, 5);
+      font-weight: 500;
+      color: lighten($blackish-grey, 5);
 
-      border: 1px solid rgba(245, 130, 33, .25);
-
-      box-shadow: inset -1px -1px 2px 0 rgba(245, 130, 33, .1);
-      transition: .1s;
-
-      &:hover {
-        color: darken($stackstorm-orange, 5);
-
-        border: 1px solid rgba(245, 130, 33, .5);
-
-        box-shadow: inset -1px -1px 2px 0 rgba(245, 130, 33, .2);
+      &:hover,
+      &:active {
+        color: black;
       }
+    }
+  }
+}
+
+.docs-button-wrap {
+  .btn {
+    position: relative;
+
+    padding-bottom: 9px;
+
+    font-size: 14px;
+    font-weight: 400;
+    color: $white;
+
+    background: darken($stackstorm-orange, 5);
+    border: 0 solid darken($stackstorm-orange, 10);
+
+    box-shadow: 0 2px 0 0 darken($stackstorm-orange, 15);
+    transition: .1s;
+
+    &:active,
+    &:hover {
+      color: $white;
+
+      background: lighten($stackstorm-orange, 5);
+
+      transition: .1s;
+    }
+
+    &:active {
+      transform: translateY(2px);
+      box-shadow: none;
     }
   }
 }
