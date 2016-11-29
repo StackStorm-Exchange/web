@@ -9,7 +9,7 @@ const Pack = React.createClass({
     return (
       <div className="card pack">
         <div className="card-header">
-          <div className="icon"><PackIcon name={this.props.name} /></div>
+          <div className="icon"><PackIcon name={this.props.slug} /></div>
           <h4 className="card-title">
             {this.props.name}
           </h4>
@@ -83,7 +83,7 @@ const PackKeywords = React.createClass({
 const PackIcon = React.createClass({
   getInitialState() {
     return {
-      image_url: `https://index.stackstorm.org/v1/icons/${this.props.ref}.png`,
+      image_url: `https://index.stackstorm.org/v1/icons/${this.props.name}.png`,
     };
   },
   useDefault() {
@@ -212,14 +212,15 @@ const PackView = React.createClass({
         return false;
       });
     };
-    const packNodes = applyFilter(this.state.query, this.state.packs).map(pack =>
-       (
-         <Pack
-           key={pack.name} queryChange={handleQueryChange} {...pack}
-         >
-           {pack.description}
-         </Pack>
-      )
+    const packNodes = applyFilter(this.state.query, this.state.packs).map((pack) => {
+      return (
+        <Pack
+          key={pack.name} slug={pack.ref || pack.name} queryChange={handleQueryChange} {...pack}
+        >
+          {pack.description}
+        </Pack>
+      );
+    }
     );
 
     return (
