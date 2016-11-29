@@ -1,11 +1,14 @@
-import 'bootstrap-loader';
-import 'font-awesome-loader';
-import Popup from 'react-popup';
+import 'bootstrap/js/dist/tooltip';
+import 'bootstrap/scss/bootstrap.scss';
 
+import 'font-awesome/scss/font-awesome.scss';
+
+import Popup from 'react-popup';
 import { render } from 'react-dom';
 import React from 'react';
 import $ from 'jquery';
 
+import './styles/main.scss';
 import './components/vendor/analytics';
 
 import Conveyor from './components/Conveyor';
