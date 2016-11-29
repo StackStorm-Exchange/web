@@ -83,7 +83,7 @@ const PackKeywords = React.createClass({
 const PackIcon = React.createClass({
   getInitialState() {
     return {
-      image_url: `https://index.stackstorm.org/v1/icons/${this.props.name}.png`,
+      image_url: `https://index.stackstorm.org/v1/icons/${this.props.ref}.png`,
     };
   },
   useDefault() {
