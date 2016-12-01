@@ -1,7 +1,7 @@
 import './vendor/typed';
 
 const type_packs = (packs) => {
-  const packNames = packs.map(pack => pack.name);
+  const packNames = packs.map(pack => pack.ref || pack.name);
   $('#pack-install').typed({
     strings: packNames,
     shuffle: true,
