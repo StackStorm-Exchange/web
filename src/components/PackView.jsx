@@ -1,10 +1,20 @@
+import 'bootstrap/js/dist/tooltip';
+
 import Masonry from 'masonry-layout';
 import React from 'react';
+import Clipboard from 'clipboard/dist/clipboard';
+import $ from 'jquery';
 
 import type_packs from './PackType';
 import categories from './categories.json';
 
+
 const Pack = React.createClass({
+  copyCommand(e) {
+    const target = $(e.target).closest('a');
+    target.addClass('copied').tooltip('hide');
+    setTimeout((() => { target.removeClass('copied'); }), 1000);
+  },
   render() {
     return (
       <div className="card pack">
@@ -17,7 +27,15 @@ const Pack = React.createClass({
             className="btn btn-sm btn-github" href={this.props.repo_url}
             rel="noopener noreferrer" target="_blank"
           ><i className="fa fa-github" /></a>
-          <a rel="button" tabIndex="-1" className="btn btn-sm"><i className="fa fa-download" /></a>
+          <a
+            rel="button" tabIndex="-1" className="btn btn-sm btn-copy"
+            data-clipboard-text={`st2 pack install ${this.props.name}`}
+            data-title="Copy install command"
+            data-trigger="click"
+            data-placement="bottom"
+            data-toggle="tooltip"
+            onClick={this.copyCommand}
+          ><i className="fa fa-paste" /></a>
         </div>
         <div className="card-block description">
           {this.props.children}
@@ -32,29 +50,6 @@ const Pack = React.createClass({
                 : '' }
             </div>
             <div className="author">{this.props.author}</div>
-          </div>
-        </div>
-        <div className="card-block install">
-          <h5>Install {this.props.name}</h5>
-          <div>
-
-            <h6>Install</h6>
-            <pre className="code">
-              st2 pack install <span className="name-highlight">{this.props.name}</span>
-            </pre>
-
-            <h6>StackStorm legacy</h6>
-            <pre className="code">
-              st2 run packs.install packs=<span className="name-highlight">{this.props.name}</span> repo_url=<span className="name-highlight">{this.props.repo_url}</span> subtree=false
-            </pre>
-
-            <h6>Work on GitHub</h6>
-            <p>To download the pack manually, just clone it from git:</p>
-            <pre className="code">
-              git clone <span className="name-highlight">{this.props.repo_url}</span>
-            </pre>
-            <p>Open an issue or a Pull Request: <a href="https://github.com/StackStorm-Exchange/stackstorm-{this.props.name}">StackStorm-Exchange/stackstorm-{this.props.name}</a></p>
-
           </div>
         </div>
       </div>
@@ -157,6 +152,12 @@ const PackView = React.createClass({
   },
   componentDidMount() {
     const loadHash = this.loadHash;
+    const clipboard = new Clipboard('.btn-copy');
+    $('body').tooltip({
+      selector: '[data-toggle="tooltip"]',
+      delay: { show: 300, hide: 100 },
+      html: true,
+    });
     $.ajax({
       url: 'https://index.stackstorm.org/v1/index.json',
       dataType: 'json',

@@ -130,7 +130,7 @@ body {
     .btn {
       position: absolute;
       top: 16px;
-      right: 20px;
+      right: 55px;
 
       width: 30px;
       height: 25px;
@@ -144,7 +144,7 @@ body {
 
       box-shadow: 0 1px 0 0 lighten($links, 40);
       box-sizing: content-box;
-      transition: .1s;
+      transition: .2s;
 
       &:hover {
         color: darken($links, 15);
@@ -157,10 +157,23 @@ body {
       }
 
       &.btn-github {
-        right: 60px;
+        right: 15px;
 
         line-height: 24px;
       };
+
+      &.btn-copy {
+        font-size: 14px;
+
+        &.copied {
+          color: #44d025;
+
+          border-color: #89e774;
+
+          box-shadow: 0 1px 0 0 #52db33;
+          transition: .2s;
+        }
+      }
     }
 
     h4 {
@@ -612,4 +625,8 @@ footer {
       box-shadow: none;
     }
   }
+}
+
+.tooltip-inner {
+  font-size: 12px;
 }
