@@ -4,7 +4,12 @@
 		"displayName": "Staff Picks",
 		"packs": [
 			"aws",
-			"sensu"
+			"github",
+			"ansible",
+			"duo",
+			"datadog",
+			"sensu",
+			"hue"
 		]
 	},
 	{
@@ -12,26 +17,40 @@
 		"displayName": "Cloud Providers",
 		"packs": [
 			"aws",
-			"rackspace"
+			"libcloud",
+			"digitalocean",
+			"rackspace",
+			"azure",
+			"dimensiondata"
 		]
 	},
 	{
 		"id": "monitoring",
 		"displayName": "Monitoring",
 		"packs": [
+			"datadog",
+			"dripstat",
+			"nagios",
 			"sensu",
-			"orion",
-			"icinga2"
+			"servicenow",
+			"newrelic",
+			"mmonit",
+			"icinga2",
+			"Check_MK"
 		]
 	},
 	{
 		"id": "curiosities",
 		"displayName": "Curiosities",
 		"packs": [
-			"powerpoint",
-			"tesla",
+			"astral",
+			"cubesensors",
 			"hue",
-			"nest"
+			"tesla",
+			"nest",
+			"powerpoint",
+			"urbandict",
+			"save_kittens"
 		]
 	}
 ]
