@@ -29,7 +29,7 @@ const Pack = React.createClass({
           ><i className="fa fa-github" /></a>
           <a
             rel="button" tabIndex="-1" className="btn btn-sm btn-copy"
-            data-clipboard-text={`st2 pack install ${this.props.ref}`}
+            data-clipboard-text={`st2 pack install ${this.props.slug}`}
             data-title="Copy install command"
             data-trigger="click"
             data-placement="bottom"
