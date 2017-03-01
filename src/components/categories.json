@@ -29,7 +29,7 @@
 		"id": "monitoring",
 		"displayName": "Monitoring",
 		"packs": [
-			"network_essentials"
+			"network_essentials",
 			"datadog",
 			"dripstat",
 			"nagios",
