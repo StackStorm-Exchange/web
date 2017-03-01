@@ -3,6 +3,7 @@
 		"id": "picks",
 		"displayName": "Staff Picks",
 		"packs": [
+			"network_essentials",
 			"aws",
 			"github",
 			"ansible",
@@ -28,6 +29,7 @@
 		"id": "monitoring",
 		"displayName": "Monitoring",
 		"packs": [
+			"network_essentials"
 			"datadog",
 			"dripstat",
 			"nagios",
