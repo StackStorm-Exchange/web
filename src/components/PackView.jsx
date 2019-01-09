@@ -16,6 +16,24 @@ const Pack = React.createClass({
     setTimeout((() => { target.removeClass('copied'); }), 1000);
   },
   render() {
+    // If no explicit version is specified, we assume it only works with Python 2.x
+    var supported_python_versions = [];
+    var supported_python_versions_string;
+
+    if (!this.props.python_versions || this.props.python_versions.length === 0) {
+      supported_python_versions_string = 'Python 2.x';
+    }
+    else {
+      if (this.props.python_versions.indexOf('2') > -1) {
+        supported_python_versions.push('Python 2.x')
+      }
+      if (this.props.python_versions.indexOf('3') > -1) {
+        supported_python_versions.push('Python 3.x')
+      }
+
+      supported_python_versions_string = supported_python_versions.join(', ');
+    }
+
     return (
       <div className="card pack">
         <div className="card-header">
@@ -50,6 +68,11 @@ const Pack = React.createClass({
                 : '' }
             </div>
             <div className="author">{this.props.author}</div>
+          </div>
+          <div className="row">
+          <div className="python_versions">
+              Supported Python versions: { supported_python_versions_string }
+            </div>
           </div>
         </div>
       </div>
