@@ -44,6 +44,9 @@ const Pack = React.createClass({
           <a
             className="btn btn-sm btn-github" href={this.props.repo_url}
             rel="noopener noreferrer" target="_blank"
+            data-title="View source code on Github"
+            data-placement="bottom"
+            data-toggle="tooltip"
           ><i className="fa fa-github" /></a>
           <a
             rel="button" tabIndex="-1" className="btn btn-sm btn-copy"
@@ -53,7 +56,14 @@ const Pack = React.createClass({
             data-placement="bottom"
             data-toggle="tooltip"
             onClick={this.copyCommand}
-          ><i className="fa fa-paste" /></a>
+            ><i className="fa fa-paste" /></a>
+          <a
+            className="btn btn-sm btn-circleci" href={`https://circleci.com/gh/StackStorm-Exchange/stackstorm-${this.props.slug}`}
+            rel="noopener noreferrer" target="_blank"
+            data-title="View build status on Circle CI"
+            data-placement="bottom"
+            data-toggle="tooltip"
+          ><i className="fa fa-cogs" /></a>
         </div>
         <div className="card-block description">
           {this.props.children}
