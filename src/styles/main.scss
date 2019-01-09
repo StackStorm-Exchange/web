@@ -130,7 +130,7 @@ body {
     .btn {
       position: absolute;
       top: 16px;
-      right: 55px;
+      right: 95px;
 
       width: 30px;
       height: 25px;
@@ -157,6 +157,12 @@ body {
       }
 
       &.btn-github {
+        right: 55px;
+
+        line-height: 24px;
+      };
+
+      &.btn-circleci {
         right: 15px;
 
         line-height: 24px;
@@ -192,7 +198,8 @@ body {
 
   .card-footer {
     .author,
-    .version {
+    .version,
+    .python_versions {
       margin: 0 15px;
 
       font-size: 12px;

@@ -16,6 +16,24 @@ const Pack = React.createClass({
     setTimeout((() => { target.removeClass('copied'); }), 1000);
   },
   render() {
+    // If no explicit version is specified, we assume it only works with Python 2.x
+    var supported_python_versions = [];
+    var supported_python_versions_string;
+
+    if (!this.props.python_versions || this.props.python_versions.length === 0) {
+      supported_python_versions_string = 'Python 2.x';
+    }
+    else {
+      if (this.props.python_versions.indexOf('2') > -1) {
+        supported_python_versions.push('Python 2.x')
+      }
+      if (this.props.python_versions.indexOf('3') > -1) {
+        supported_python_versions.push('Python 3.x')
+      }
+
+      supported_python_versions_string = supported_python_versions.join(', ');
+    }
+
     return (
       <div className="card pack">
         <div className="card-header">
@@ -26,6 +44,9 @@ const Pack = React.createClass({
           <a
             className="btn btn-sm btn-github" href={this.props.repo_url}
             rel="noopener noreferrer" target="_blank"
+            data-title="View source code on Github"
+            data-placement="bottom"
+            data-toggle="tooltip"
           ><i className="fa fa-github" /></a>
           <a
             rel="button" tabIndex="-1" className="btn btn-sm btn-copy"
@@ -35,7 +56,14 @@ const Pack = React.createClass({
             data-placement="bottom"
             data-toggle="tooltip"
             onClick={this.copyCommand}
-          ><i className="fa fa-paste" /></a>
+            ><i className="fa fa-paste" /></a>
+          <a
+            className="btn btn-sm btn-circleci" href={`https://circleci.com/gh/StackStorm-Exchange/stackstorm-${this.props.slug}`}
+            rel="noopener noreferrer" target="_blank"
+            data-title="View build status on Circle CI"
+            data-placement="bottom"
+            data-toggle="tooltip"
+          ><i className="fa fa-cogs" /></a>
         </div>
         <div className="card-block description">
           {this.props.children}
@@ -50,6 +78,11 @@ const Pack = React.createClass({
                 : '' }
             </div>
             <div className="author">{this.props.author}</div>
+          </div>
+          <div className="row">
+          <div className="python_versions">
+              Supported Python versions: { supported_python_versions_string }
+            </div>
           </div>
         </div>
       </div>
