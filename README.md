@@ -12,7 +12,7 @@ as a JSON file.
 Just look at that page: packs, packs everywhere! Maybe it's time to go
 create even more?
 
-#### Further reading
+#### Further Reading
 
 CI: [StackStorm-Exchange/ci](https://github.com/StackStorm-Exchange/ci).
 
