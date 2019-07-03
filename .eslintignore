@@ -1,0 +1,3 @@
+# Ignore the built files
+docs/
+src/components/vendor/
