@@ -21,7 +21,6 @@ jobs:
             npm run build
       - store_artifacts:
           path: ~/web/docs
-          destination: docs
       - persist_to_workspace:
           root: /root/web
           paths:
