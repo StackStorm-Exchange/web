@@ -23,7 +23,7 @@ jobs:
           path: ~/web/docs
           destination: docs
       - persist_to_workspace:
-          root: /home/circleci/web
+          root: /root/web
           paths:
             - docs
   deploy:
@@ -32,7 +32,7 @@ jobs:
     working_directory: ~/web
     steps:
       - attach_workspace:
-          at: /home/circleci/web
+          at: /root/web
       - run:
           name: Install gh-pages
           command: npm install -g --silent gh-pages@2.0.1
