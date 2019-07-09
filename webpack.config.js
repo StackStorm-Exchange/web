@@ -8,7 +8,7 @@ const APP_DIR = path.resolve(__dirname, 'src');
 
 const config = {
   resolve: {
-    extensions: ['.js', '.jsx', '.scss'],
+    extensions: [ '.js', '.jsx', '.scss' ],
   },
 
   entry: `${APP_DIR}/index.jsx`,
@@ -22,7 +22,7 @@ const config = {
         test: /\.jsx?/,
         loader: 'babel-loader',
         query: {
-          presets: ['react', 'es2015'],
+          presets: [ '@babel/preset-react', '@babel/preset-env' ],
         },
       },
       {
@@ -52,7 +52,7 @@ const config = {
         output: {
           path: BUILD_DIR,
         },
-        sassResources: ['./src/styles/shared.scss'],
+        sassResources: [ './src/styles/shared.scss' ],
         context: path.resolve(__dirname), // must evaluate to root of project
       },
     }),

@@ -28,7 +28,13 @@ To build the website, run the commands listed below.
 npm install
 ```
 
-2. Build it
+2. Make sure linting passes
+
+```bash
+npm run lint
+```
+
+3. Build it
 
 ```bash
 npm run build
@@ -39,3 +45,8 @@ If you want to run a development server locally, you can run:
 ```bash
 npm run dev
 ```
+
+## Deploying new versions
+
+This website is hosted by Github Pages. When code is merged to master, if it passes linting and tests, it will
+automatically get pushed to the `gh-pages` branch, and served at https://exchange.stackstorm.org/
