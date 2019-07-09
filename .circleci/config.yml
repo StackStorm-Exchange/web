@@ -30,6 +30,7 @@ jobs:
       - image: node:10
     working_directory: ~/web
     steps:
+      - checkout
       - attach_workspace:
           at: /root/web
       - run:
