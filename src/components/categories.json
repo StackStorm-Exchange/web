@@ -22,7 +22,8 @@
 			"digitalocean",
 			"rackspace",
 			"azure",
-			"dimensiondata"
+			"dimensiondata",
+			"cloudstack"
 		]
 	},
 	{
