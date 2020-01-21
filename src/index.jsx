@@ -7,6 +7,7 @@ import { render } from 'react-dom';
 import React from 'react';
 
 import './styles/main.scss';
+import './styles/customizations.scss';
 import './components/vendor/analytics';
 
 import Conveyor from './components/Conveyor';
