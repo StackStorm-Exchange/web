@@ -11,6 +11,7 @@ import './styles/customizations.scss';
 import './components/vendor/analytics';
 
 import Conveyor from './components/Conveyor';
+import Footer from './components/Footer';
 import PackView from './components/PackView';
 import { CreateButton, SubmitButton } from './components/PackButtons';
 
@@ -38,4 +39,9 @@ render(
 render(
   <Popup />,
   document.getElementById('popup-container')
+);
+
+render(
+  <Footer />,
+  document.getElementById('footer')
 );
